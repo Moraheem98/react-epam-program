@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { ClassComponent } from '../../components/ClassComponent';
 import { CreateElementComponent } from '../../components/CreateElementComponent';
 import { FunctionalComponent } from '../../components/FunctionalComponent';
 import MyPureComponent from '../../components/MyPureComponent';
-import './index.css'
+import './index.css';
+
 
 export const UpperContainer = () => {
     return (
@@ -13,6 +14,6 @@ export const UpperContainer = () => {
             <ClassComponent />
             <CreateElementComponent />
         </div>
-    )
-}
+    );
+};
 

@@ -1,0 +1,6 @@
+.visually-hidden {
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+};
