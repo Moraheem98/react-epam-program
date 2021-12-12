@@ -5,7 +5,6 @@ import { FunctionalComponent } from '../../components/FunctionalComponent';
 import MyPureComponent from '../../components/MyPureComponent';
 import './index.css';
 
-
 export const UpperContainer = () => {
     return (
         <div className="container">
