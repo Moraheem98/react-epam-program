@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "../../components/ButtonComponent";
+
+import { Button } from "../Button";
 
 export function Counter() {
   const [count, setCount] = useState(0);
@@ -14,9 +15,9 @@ export function Counter() {
 
   return (
     <>
-        <h1>Count:{count}</h1>
-        <Button icon={"-"} action={decrementCount} />
-        <Button icon={"+"} action={incrementCount} />
+      <h1>Count:{count}</h1>
+      <Button icon={"-"} action={decrementCount} />
+      <Button icon={"+"} action={incrementCount} />
     </>
   );
 };
