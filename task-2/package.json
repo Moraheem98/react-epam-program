@@ -4,8 +4,8 @@
   "description": "creating a react app from scratch using webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "author": "Mohammed Raheem",
   "license": "MIT",
