@@ -1,14 +1,20 @@
 import React from 'react';
 
+import { UpperContainer } from './containers/UpperContainer';
+import { LowerContainer } from './containers/LowerContainer';
+import ErrorBoundary from './components/ErrorBoundary';
+
+import './app.css'
+
 function App() {
   return (
     <div>
-      <h1>Hello Mohammed Raheem</h1>
-      <p> 
-        { new Date().toString() } 
-      </p>
+      <ErrorBoundary>
+        <UpperContainer />
+        <LowerContainer />
+      </ErrorBoundary>
     </div>
   );
-}
+};
 
 export default App;
