@@ -1,10 +1,10 @@
 .toggleBarContainer {
-    color: white;
+	color: white;
 }
 .toggleBarContainer ul {
-    display: inline-flex;
-    list-style: none;
+	display: inline-flex;
+	list-style: none;
 }
 .toggleBarContainer li {
-    padding: 0.5rem;
+	padding: 0.5rem;
 }

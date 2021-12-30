@@ -1,41 +1,45 @@
 {
-  "name": "react-webpack-task",
-  "version": "1.0.0",
-  "description": "creating a react app from scratch using webpack",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack serve",
-    "build": "rm -rf dist && webpack",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "eslint": "eslint ./src",
-    "eslint:fix": "npm run eslint -- --fix",
-    "lint": "npm run prettier && npm run eslint",
-    "lint:fix": "npm run prettier:fix && npm run eslint:fix"
-  },
-  "author": "Mohammed Raheem",
-  "license": "MIT",
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "@babel/preset-react": "^7.16.5",
-    "babel-loader": "^8.2.3",
-    "css-loader": "^6.5.1",
-    "eslint": "^8.4.1",
-    "eslint-config-airbnb": "^19.0.2",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "html-webpack-plugin": "^5.5.0",
-    "prettier": "2.5.1",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0"
-  }
+	"name": "react-webpack-task",
+	"version": "1.0.0",
+	"description": "creating a react app from scratch using webpack",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack serve",
+		"build": "rm -rf dist && webpack",
+		"prettier": "prettier --check .",
+		"prettier:fix": "prettier --write .",
+		"eslint": "eslint ./src",
+		"eslint:fix": "npm run eslint -- --fix",
+		"lint": "npm run prettier && npm run eslint",
+		"lint:fix": "npm run prettier:fix && npm run eslint:fix"
+	},
+	"author": "Mohammed Raheem",
+	"license": "MIT",
+	"dependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.5",
+		"@babel/preset-env": "^7.16.5",
+		"@babel/preset-react": "^7.16.5",
+		"babel-loader": "^8.2.3",
+		"css-loader": "^6.5.1",
+		"eslint": "^8.4.1",
+		"eslint-config-airbnb": "^19.0.2",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.27.1",
+		"eslint-plugin-react-hooks": "^4.3.0",
+		"html-webpack-plugin": "^5.5.0",
+		"prettier": "2.5.1",
+		"sass": "^1.45.1",
+		"sass-loader": "^12.4.0",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.65.0",
+		"webpack-cli": "^4.9.1",
+		"webpack-dev-server": "^4.6.0"
+	}
 }

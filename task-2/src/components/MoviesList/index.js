@@ -1,15 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import Movie from '../Movie';
-import movieData from '../Movie/data';
+import { Movie } from '../Movie'
+import movieData from '../../core/data'
+
 import './index.css'
 
 export const MovieList = () => {
-    const movies = movieData.map(movie => <Movie title={movie.title} year={movie.year} genre={movie.genre} image={movie.image}/>)
+	const movies = movieData.map((movie) => (
+		<Movie title={movie.title} year={movie.year} genre={movie.genre} />
+	))
 
-    return (
-        <div className="movieListContainer">
-            {movies}
-        </div>
-    )
-};
+	return <div className='movieListContainer'>{movies}</div>
+}
