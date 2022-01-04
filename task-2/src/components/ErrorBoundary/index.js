@@ -18,3 +18,7 @@ export class ErrorBoundary extends Component {
 		return this.props.children
 	}
 }
+
+ErrorBoundary.propTypes = {
+	children: PropTypes.element.isRequired,
+}

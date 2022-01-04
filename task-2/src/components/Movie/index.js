@@ -20,3 +20,9 @@ export const Movie = (props) => {
 		</div>
 	)
 }
+
+Movie.propTypes = {
+	title: PropTypes.string,
+	genre: PropTypes.string,
+	year: PropTypes.number,
+}
