@@ -1,14 +1,20 @@
-import React from 'react';
+import React from 'react'
 
-function App() {
-  return (
-    <div>
-      <h1>Hello Mohammed Raheem</h1>
-      <p> 
-        { new Date().toString() } 
-      </p>
-    </div>
-  );
+import { UpperContainer } from './containers/UpperContainer'
+import { LowerContainer } from './containers/LowerContainer'
+import { ErrorBoundary } from './components/ErrorBoundary'
+
+import './app.css'
+
+const App = function () {
+	return (
+		<div>
+			<ErrorBoundary>
+				<UpperContainer />
+				<LowerContainer />
+			</ErrorBoundary>
+		</div>
+	)
 }
 
-export default App;
+export default App

@@ -1,0 +1,12 @@
+.searchContainer {
+	color: white;
+	padding: 2rem;
+}
+.searchContainer input {
+	width: 60%;
+	padding: 0.5rem;
+}
+
+.searchContainer button {
+	padding: 0.5rem;
+}
