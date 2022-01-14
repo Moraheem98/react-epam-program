@@ -1,0 +1,7 @@
+.modalContainer { 
+    background-color: grey;
+}
+.modalHeader {
+    display: flex;
+    justify-content: space-around;
+};

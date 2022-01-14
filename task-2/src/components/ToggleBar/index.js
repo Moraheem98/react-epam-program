@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './index.css'
+import './index.css';
 
 export const ToggleBar = () => {
 	return (
@@ -13,5 +13,5 @@ export const ToggleBar = () => {
 				<li>Horror</li>
 			</ul>
 		</div>
-	)
-}
+	);
+};

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './index.css'
+import './index.css';
 
 export const SearchBar = () => {
 	return (
@@ -9,5 +9,5 @@ export const SearchBar = () => {
 			<input placeholder='Search any Movie...' />
 			<button>Search</button>
 		</div>
-	)
-}
+	);
+};

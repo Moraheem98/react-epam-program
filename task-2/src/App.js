@@ -1,20 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import { UpperContainer } from './containers/UpperContainer'
-import { LowerContainer } from './containers/LowerContainer'
-import { ErrorBoundary } from './components/ErrorBoundary'
+import { Home } from './components/Home';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
-import './app.css'
+import './app.css';
 
 const App = function () {
 	return (
 		<div>
 			<ErrorBoundary>
-				<UpperContainer />
-				<LowerContainer />
+				<Home />
 			</ErrorBoundary>
 		</div>
-	)
-}
+	);
+};
 
-export default App
+export default App;
