@@ -1,7 +1,12 @@
-.modalContainer { 
-    background-color: grey;
+.modalContainer {
+	background-color: grey;
+	position: fixed;
+	z-index: 1;
+	left: 50%;
+	top: 50%;
+	width: 500px;
 }
 .modalHeader {
-    display: flex;
-    justify-content: space-around;
-};
+	display: flex;
+	justify-content: space-around;
+}

@@ -1,4 +1,4 @@
-const movieData = [
+export const movieData = [
 	{
 		id: 1,
 		title: 'law abiding citizen',
@@ -67,4 +67,10 @@ const movieData = [
 	},
 ];
 
-export default movieData;
+export const dropdownOptions = [
+	{ label: 'genre', value: 'genre' },
+	{ label: 'crime', value: 'crime' },
+	{ label: 'fantasy', value: 'fantasy' },
+	{ label: 'action', value: 'action' },
+	{ label: 'drama', value: 'drama' },
+];

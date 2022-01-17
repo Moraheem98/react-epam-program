@@ -9,13 +9,20 @@ import { Modal } from '../../components/Modal';
 import './index.css';
 
 export const Home = () => {
-    const [openModal, setOpenModal] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
 	return (
 		<div className='homeContainer'>
-            {openModal && <Modal closeModal={setOpenModal} />}
-            <button className="addMovieBtn" onClick={() => {setOpenModal(true)}}>add movie</button>
-            <Navigation />
-            <SearchBar />
+			{openModal && <Modal closeModal={setOpenModal} />}
+			<button
+				className='addMovieBtn'
+				onClick={() => {
+					setOpenModal(true);
+				}}
+			>
+				add movie
+			</button>
+			<Navigation />
+			<SearchBar />
 			<ToggleBar />
 			<MovieList />
 		</div>

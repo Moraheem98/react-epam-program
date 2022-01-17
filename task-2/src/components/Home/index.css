@@ -1,8 +1,8 @@
 .homeContainer {
-    background-color: black;
+	background-color: black;
 }
 .addMovieBtn {
-    float: right;
-    padding: 8px;
-    margin: 24px;
+	float: right;
+	padding: 8px;
+	margin: 24px;
 }
