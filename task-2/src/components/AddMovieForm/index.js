@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { Dropdown } from '../Dropdown';
 import PropTypes from 'prop-types';
 
+import { ADD_FIELDS } from '../../constants';
+
+import { Dropdown } from '../Dropdown';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import './index.css';
 
 export const AddMovieForm = ({
@@ -42,57 +45,68 @@ export const AddMovieForm = ({
 	return (
 		<>
 			<form onSubmit={handleSubmit} className='formContainer'>
+				<label>Title</label>
 				<input
 					type='text'
 					className='inputField'
 					placeholder='title'
-					name='titleName'
+					name={ADD_FIELDS.TITLE_NAME}
 					values={values.title}
 					onChange={handleInputChanges}
 				/>
+				<label>Release Year</label>
 				<DatePicker
 					selected={selectedDate}
 					onChange={handleDateChange}
 					dateFormat='yyyy'
-					name='selectDate'
+					name={ADD_FIELDS.SELECT_DATE}
+					className='inputField'
+					placeholderText='Select a year'
 					showYearDropdown
 					scrollableYearDropdown
 					isClearable
 				/>
+				<label>Rating</label>
 				<input
 					type='number'
 					className='inputField'
 					placeholder='rating'
-					name='ratingName'
+					name={ADD_FIELDS.RATING_NAME}
 					values={values.rating}
 					onChange={handleInputChanges}
 				/>
+				<label>Genre</label>
 				<Dropdown
 					dropdownOptions={dropdownOptions}
 					dropdownValue={dropdownValue}
 					onChange={dropdownHandler}
+					className='inputField'
 				/>
+				<label>Runtime</label>
 				<input
 					type='number'
 					className='inputField'
 					placeholder='runtime'
-					name='runtimeName'
+					name={ADD_FIELDS.RUNTIME_NAME}
 					values={values.runtime}
 					onChange={handleInputChanges}
 				/>
+				<label>description</label>
 				<input
 					type='text'
 					className='inputField'
 					placeholder='description'
-					name='descriptionName'
+					name={ADD_FIELDS.DESCRIPTION_NAME}
 					values={values.description}
 					onChange={handleInputChanges}
 				/>
 			</form>
-			<button type='submit' value='submit'>
-				Submit
-			</button>
-			<button onReset={resetInputValues}>Reset</button>
+			<div className='btnContainer'>
+				<button type='submit' value='submit'>
+					Submit
+				</button>
+				<button onReset={resetInputValues}>Reset</button>
+			</div>
 		</>
 	);
 };

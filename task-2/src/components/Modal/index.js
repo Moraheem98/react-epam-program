@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { AddMovieForm } from '../AddMovieForm';
 import PropTypes from 'prop-types';
+
+import { AddMovieForm } from '../AddMovieForm';
 
 import './index.css';
 

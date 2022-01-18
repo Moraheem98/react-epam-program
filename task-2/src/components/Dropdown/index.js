@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { dropdownOptions } from '../../core/data';
+
+import { dropdownOptions } from '../../constants';
 
 export const Dropdown = () => {
 	const [dropdownValue, setDropdownValue] = useState('');
@@ -8,7 +9,7 @@ export const Dropdown = () => {
 		setDropdownValue(e.target.value);
 	};
 
-	const handleDropdownValues = () => {
+	const renderOptions = () => {
 		return dropdownOptions.map((option) => (
 			<option key={option.value}>{option.label}</option>
 		));
@@ -17,8 +18,12 @@ export const Dropdown = () => {
 	return (
 		<>
 			<label>
-				<select value={dropdownValue} onChange={dropdownHandler}>
-					{handleDropdownValues()}
+				<select
+					className='inputField'
+					value={dropdownValue}
+					onChange={dropdownHandler}
+				>
+					{renderOptions()}
 				</select>
 			</label>
 		</>

@@ -66,11 +66,3 @@ export const movieData = [
 		runtime: 100,
 	},
 ];
-
-export const dropdownOptions = [
-	{ label: 'genre', value: 'genre' },
-	{ label: 'crime', value: 'crime' },
-	{ label: 'fantasy', value: 'fantasy' },
-	{ label: 'action', value: 'action' },
-	{ label: 'drama', value: 'drama' },
-];
