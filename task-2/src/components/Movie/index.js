@@ -1,5 +1,8 @@
-import React from 'react'
-import './index.css'
+import React from 'react';
+
+import PropTypes from 'prop-types';
+
+import './index.css';
 
 export const Movie = (props) => {
 	return (
@@ -16,13 +19,17 @@ export const Movie = (props) => {
 				Year:
 				{props.year}
 			</p>
+			<p>
+				Year:
+				{props.year}
+			</p>
 			{/* {props.image} */}
 		</div>
-	)
-}
+	);
+};
 
 Movie.propTypes = {
 	title: PropTypes.string,
 	genre: PropTypes.string,
 	year: PropTypes.number,
-}
+};

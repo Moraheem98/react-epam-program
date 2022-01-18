@@ -1,0 +1,23 @@
+.formContainer {
+	margin: auto;
+	width: 100%;
+	padding: 40px;
+	color: white;
+}
+.inputField {
+	border: 1px solid #d9d9d9;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 70%;
+}
+label {
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+.btnContainer {
+	float: right;
+	padding: 16px;
+}

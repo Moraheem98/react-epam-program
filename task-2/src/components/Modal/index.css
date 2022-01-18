@@ -1,0 +1,14 @@
+.modalContainer {
+	position: fixed;
+	z-index: 1;
+	left: 25%;
+	top: 25%;
+	color: white;
+	border: 1px solid #dedede;
+	width: 100vh;
+	background-color: grey;
+}
+.modalHeader {
+	display: flex;
+	justify-content: space-around;
+}

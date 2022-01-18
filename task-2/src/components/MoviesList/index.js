@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-import { Movie } from '../Movie'
-import movieData from '../../core/data'
+import { movieData } from '../../core/data';
 
-import './index.css'
+import { Movie } from '../Movie';
+
+import './index.css';
 
 export const MovieList = () => {
 	const movies = movieData.map((movie) => (
@@ -13,7 +14,7 @@ export const MovieList = () => {
 			year={movie.year}
 			genre={movie.genre}
 		/>
-	))
+	));
 
-	return <div className='movieListContainer'>{movies}</div>
-}
+	return <div className='movieListContainer'>{movies}</div>;
+};
