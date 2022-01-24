@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
+import { SearchBanner } from '../../components/Banners/SearchBanner';
+import { MovieDetailsBanner } from '../../components/Banners/MovieDetailsBanner';
 import { Navigation } from '../../components/Navigation';
-import { SearchBar } from '../../components/SearchBar';
 import { MovieList } from '../../components/MoviesList';
 import { ToggleBar } from '../../components/ToggleBar';
 import { Modal } from '../../components/Modal';
@@ -10,6 +11,9 @@ import './index.css';
 
 export const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
+
+	const [selectedMovie, setSelectedMovie] = useState(null);
+
 	return (
 		<div className='homeContainer'>
 			{openModal && <Modal closeModal={setOpenModal} />}
@@ -22,9 +26,16 @@ export const Home = () => {
 				add movie
 			</button>
 			<Navigation />
-			<SearchBar />
+			{!selectedMovie ? (
+				<SearchBanner />
+			) : (
+				<MovieDetailsBanner
+					selectedMovie={selectedMovie}
+					setSelectedMovie={setSelectedMovie}
+				/>
+			)}
 			<ToggleBar />
-			<MovieList />
+			<MovieList setSelectedMovie={setSelectedMovie} />
 		</div>
 	);
 };

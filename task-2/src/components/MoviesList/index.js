@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import PropTypes from 'prop-types';
 
 import { movieData } from '../../core/data';
 
@@ -6,9 +8,10 @@ import { Movie } from '../Movie';
 
 import './index.css';
 
-export const MovieList = () => {
+export const MovieList = ({ setSelectedMovie }) => {
 	const movies = movieData.map((movie) => (
 		<Movie
+			onClick={() => setSelectedMovie(movie)}
 			key={movie.id}
 			title={movie.title}
 			year={movie.year}
@@ -17,4 +20,8 @@ export const MovieList = () => {
 	));
 
 	return <div className='movieListContainer'>{movies}</div>;
+};
+
+MovieList.propTypes = {
+	setSelectedMovie: PropTypes.object,
 };
