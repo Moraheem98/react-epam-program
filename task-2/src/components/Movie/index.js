@@ -6,30 +6,23 @@ import './index.css';
 
 export const Movie = (props) => {
 	return (
-		<div className='movieContainer'>
-			<p>
+		<div className='movieContainer' onClick={props.onClick}>
+			<button className='buttonContainer' onClick={props.show}>
 				Title:
 				{props.title}
-			</p>
-			<p>
-				Genre:
-				{props.genre}
-			</p>
-			<p>
-				Year:
+				genre:
+				{props.title}
+				year:
 				{props.year}
-			</p>
-			<p>
-				Year:
-				{props.year}
-			</p>
-			{/* {props.image} */}
+			</button>
 		</div>
 	);
 };
 
 Movie.propTypes = {
+	show: PropTypes.func,
 	title: PropTypes.string,
 	genre: PropTypes.string,
 	year: PropTypes.number,
+	onClick: PropTypes.func,
 };

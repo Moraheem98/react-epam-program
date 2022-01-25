@@ -7,7 +7,7 @@ export const SearchBar = () => {
 		<div className='searchContainer'>
 			<h2>FIND YOUR MOVIE</h2>
 			<input placeholder='Search any Movie...' />
-			<button>Search</button>
+			<button>search</button>
 		</div>
 	);
 };

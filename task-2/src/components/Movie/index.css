@@ -1,7 +1,13 @@
 .movieContainer {
-	color: white;
 	border: solid 1px white;
-	padding: 1rem;
 	width: 33.333333%;
 	margin: 0.5rem;
+}
+
+.buttonContainer {
+	background-color: black;
+	color: white;
+	border: none;
+	width: 100%;
+	cursor: pointer;
 }
