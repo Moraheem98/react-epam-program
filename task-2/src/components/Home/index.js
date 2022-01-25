@@ -27,8 +27,8 @@ export const Home = () => {
 				add movie
 			</button>
 			<Navigation
-			  setSelectedMovie={setSelectedMovie}
-			  displayButton={displayButton}
+				setSelectedMovie={setSelectedMovie}
+				displayButton={displayButton}
 			/>
 			{!selectedMovie ? (
 				<SearchBanner />

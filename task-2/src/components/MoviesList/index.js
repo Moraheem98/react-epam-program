@@ -25,4 +25,5 @@ export const MovieList = ({ setSelectedMovie, show }) => {
 
 MovieList.propTypes = {
 	setSelectedMovie: PropTypes.func,
+	show: PropTypes.func,
 };
