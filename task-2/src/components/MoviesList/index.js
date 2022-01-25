@@ -8,10 +8,11 @@ import { Movie } from '../Movie';
 
 import './index.css';
 
-export const MovieList = ({ setSelectedMovie }) => {
+export const MovieList = ({ setSelectedMovie, show }) => {
 	const movies = movieData.map((movie) => (
 		<Movie
 			onClick={() => setSelectedMovie(movie)}
+			show={show}
 			key={movie.id}
 			title={movie.title}
 			year={movie.year}
@@ -23,5 +24,5 @@ export const MovieList = ({ setSelectedMovie }) => {
 };
 
 MovieList.propTypes = {
-	setSelectedMovie: PropTypes.object,
+	setSelectedMovie: PropTypes.func,
 };

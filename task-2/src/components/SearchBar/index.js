@@ -2,7 +2,7 @@ import React from 'react';
 
 import './index.css';
 
-export const SearchBar = ({}) => {
+export const SearchBar = () => {
 	return (
 		<div className='searchContainer'>
 			<h2>FIND YOUR MOVIE</h2>

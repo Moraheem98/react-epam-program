@@ -11,8 +11,9 @@ import './index.css';
 
 export const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
-
-	const [selectedMovie, setSelectedMovie] = useState(null);
+	const [selectedMovie, setSelectedMovie] = useState(undefined);
+	const [displayButton, setDisplayButton] = useState(false);
+	const show = () => setDisplayButton(true);
 
 	return (
 		<div className='homeContainer'>
@@ -25,17 +26,17 @@ export const Home = () => {
 			>
 				add movie
 			</button>
-			<Navigation />
+			<Navigation
+			  setSelectedMovie={setSelectedMovie}
+			  displayButton={displayButton}
+			/>
 			{!selectedMovie ? (
 				<SearchBanner />
 			) : (
-				<MovieDetailsBanner
-					selectedMovie={selectedMovie}
-					setSelectedMovie={setSelectedMovie}
-				/>
+				<MovieDetailsBanner selectedMovie={selectedMovie} />
 			)}
 			<ToggleBar />
-			<MovieList setSelectedMovie={setSelectedMovie} />
+			<MovieList setSelectedMovie={setSelectedMovie} show={show} />
 		</div>
 	);
 };
