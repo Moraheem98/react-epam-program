@@ -11,7 +11,7 @@ export const Movie = (props) => {
 				Title:
 				{props.title}
 				genre:
-				{props.title}
+				{props.genre}
 				year:
 				{props.year}
 			</button>
