@@ -11,7 +11,9 @@ import './index.css';
 
 export const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
+
 	const [selectedMovie, setSelectedMovie] = useState(undefined);
+
 	const [displayButton, setDisplayButton] = useState(false);
 	const show = () => setDisplayButton(true);
 
