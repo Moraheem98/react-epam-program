@@ -26,9 +26,9 @@ export const sortBy = (sort) => {
 	};
 };
 
-export const switchBanner = (change) => {
+export const switchBanner = (movie) => {
 	return {
 		type: SWITCH_BANNER,
-		payload: change,
+		payload: movie,
 	};
 };

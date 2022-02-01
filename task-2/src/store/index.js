@@ -1,7 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-import { rootReducer } from './allReducers/rootReducer';
+// import { rootReducer } from './allReducers/rootReducer';
+import { switchBannerReducer } from '../store/allReducers/switchBannerReducer';
 
-export const store = createStore(rootReducer);
+const reducer = combineReducers({ switchBannerReducer });
 
-//middleware - async stuff and devtools
+export const store = createStore(
+	reducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
