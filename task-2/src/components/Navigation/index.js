@@ -6,13 +6,11 @@ import { SearchButton } from '../Button/SearchButton';
 
 import './index.css';
 
-export const Navigation = ({ setSelectedMovie, displayButton }) => {
+export const Navigation = ({ displayButton }) => {
 	return (
 		<div className='navigationContainer'>
 			<p>netflixroulette</p>
-			{displayButton ? (
-				<SearchButton setSelectedMovie={setSelectedMovie} />
-			) : null}
+			{displayButton ? <SearchButton /> : null}
 		</div>
 	);
 };

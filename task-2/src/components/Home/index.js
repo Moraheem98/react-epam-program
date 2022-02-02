@@ -33,11 +33,7 @@ export const Home = () => {
 				add movie
 			</button>
 			<Navigation displayButton={displayButton} />
-			{!selectedMovie ? (
-				<SearchBanner />
-			) : (
-				<MovieDetailsBanner selectedMovie={selectedMovie} />
-			)}
+			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
 			<ToggleBar />
 			<MovieList show={show} />
 		</div>
