@@ -19,5 +19,5 @@ export const Navigation = ({ setSelectedMovie, displayButton }) => {
 
 Navigation.propTypes = {
 	setSelectedMovie: PropTypes.func,
-	displayButton: PropTypes.func,
+	displayButton: PropTypes.bool,
 };

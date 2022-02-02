@@ -1,11 +1,15 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
-export const SearchButton = ({ setSelectedMovie }) => {
+import { switchBanner } from '../../../store/actionCreaters/actionCreators';
+
+export const SearchButton = () => {
+	const dispatch = useDispatch();
 	return (
 		<>
-			<button onClick={() => setSelectedMovie(null)}>search again</button>
+			<button onClick={() => dispatch(switchBanner(null))}>search again</button>
 		</>
 	);
 };
