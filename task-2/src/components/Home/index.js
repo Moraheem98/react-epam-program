@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+
+import { selectedMovieSelector } from '../../store/selectors';
 import { SearchBanner } from '../../components/Banners/SearchBanner';
 import { MovieDetailsBanner } from '../../components/Banners/MovieDetailsBanner';
 import { Navigation } from '../../components/Navigation';
@@ -11,9 +14,11 @@ import './index.css';
 
 export const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
-	const [selectedMovie, setSelectedMovie] = useState(undefined);
+
 	const [displayButton, setDisplayButton] = useState(false);
 	const show = () => setDisplayButton(true);
+
+	const selectedMovie = useSelector(selectedMovieSelector);
 
 	return (
 		<div className='homeContainer'>
@@ -26,17 +31,10 @@ export const Home = () => {
 			>
 				add movie
 			</button>
-			<Navigation
-				setSelectedMovie={setSelectedMovie}
-				displayButton={displayButton}
-			/>
-			{!selectedMovie ? (
-				<SearchBanner />
-			) : (
-				<MovieDetailsBanner selectedMovie={selectedMovie} />
-			)}
+			<Navigation displayButton={displayButton} />
+			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
 			<ToggleBar />
-			<MovieList setSelectedMovie={setSelectedMovie} show={show} />
+			<MovieList show={show} />
 		</div>
 	);
 };
