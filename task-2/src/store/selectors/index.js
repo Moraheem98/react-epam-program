@@ -1,4 +1,2 @@
-import { useSelector } from 'react-redux';
-
-export const selectedMovieSelector = () =>
-	useSelector((state) => state.switchBannerReducer.selectedMovie);
+export const selectedMovieSelector = (state) =>
+	state.switchBannerReducer.selectedMovie;

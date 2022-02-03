@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+
 import { selectedMovieSelector } from '../../store/selectors';
 import { SearchBanner } from '../../components/Banners/SearchBanner';
 import { MovieDetailsBanner } from '../../components/Banners/MovieDetailsBanner';
@@ -16,7 +18,7 @@ export const Home = () => {
 	const [displayButton, setDisplayButton] = useState(false);
 	const show = () => setDisplayButton(true);
 
-	const selectedMovie = selectedMovieSelector();
+	const selectedMovie = useSelector(selectedMovieSelector);
 
 	return (
 		<div className='homeContainer'>
