@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { switchBanner } from '../../../store/actionCreaters/actionCreators';
+import { switchBanner } from '../../../store/actionCreators/actionCreators';
 
 export const SearchButton = () => {
 	const dispatch = useDispatch();

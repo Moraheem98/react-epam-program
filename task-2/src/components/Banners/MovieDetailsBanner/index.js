@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
-
 import PropTypes from 'prop-types';
+
+import { selectedMovieSelector } from '../../../store/selectors';
 
 import { Movie } from '../../Movie';
 
 export const MovieDetailsBanner = () => {
-	const selectedMovie = useSelector(
-		(state) => state.switchBannerReducer.selectedMovie,
-	);
+	const selectedMovie = selectedMovieSelector();
 	return (
 		<Movie
 			key={selectedMovie.id}

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { movieData } from '../../core/data';
-import { switchBanner } from '../../store/actionCreaters/actionCreators';
+import { switchBanner } from '../../store/actionCreators/actionCreators';
 
 import { Movie } from '../Movie';
 

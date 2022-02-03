@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-// import { rootReducer } from './allReducers/rootReducer';
-import { switchBannerReducer } from '../store/allReducers/switchBannerReducer';
+import { switchBannerReducer } from '../store/reducers/switchBannerReducer';
+import { rootReducer } from './reducers/rootReducer';
 
-const reducer = combineReducers({ switchBannerReducer });
+const reducer = combineReducers({ switchBannerReducer, rootReducer });
 
 export const store = createStore(
 	reducer,
