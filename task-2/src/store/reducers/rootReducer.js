@@ -1,11 +1,11 @@
 import {
-	ALL_MOVIE_ARRAY,
+	ALL_MOVIES,
 	MOVIE_FILTER,
 	SORT_BY,
 } from '../actionTypes/allActionTypes';
 
 const initialState = {
-	allMovieArray: [],
+	aLLMovies: [],
 	movieFilter: [],
 	sortBy: [],
 };
@@ -17,7 +17,7 @@ export const rootReducer = (state = initialState, action) => {
 				...state,
 				movieFilter: [...state.movieFilter, action.payload],
 			};
-		case ALL_MOVIE_ARRAY:
+		case ALL_MOVIES:
 			return {
 				...state,
 				allMovieArray: [...state.allMovieArray, action.payload],
