@@ -1,11 +1,7 @@
-import {
-	ALL_MOVIES,
-	MOVIE_FILTER,
-	SORT_BY,
-} from '../actionTypes/allActionTypes';
+import { ALL_MOVIES, MOVIE_FILTER, SORT_BY } from '../actionTypes';
 
 const initialState = {
-	aLLMovies: [],
+	allMovies: [],
 	movieFilter: [],
 	sortBy: [],
 };

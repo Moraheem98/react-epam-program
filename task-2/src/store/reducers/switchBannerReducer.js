@@ -1,4 +1,4 @@
-import { SWITCH_BANNER } from '../actionTypes/allActionTypes';
+import { SWITCH_BANNER } from '../actionTypes';
 
 const initialState = {
 	selectedMovie: null,

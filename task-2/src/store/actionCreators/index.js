@@ -3,7 +3,7 @@ import {
 	MOVIE_FILTER,
 	SORT_BY,
 	SWITCH_BANNER,
-} from '../actionTypes/allActionTypes';
+} from '../actionTypes';
 
 export const allMovies = (array) => {
 	return {

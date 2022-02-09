@@ -1,18 +1,18 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+
 import { useDispatch } from 'react-redux';
 
-import { movieData } from '../../core/data';
-import { switchBanner } from '../../store/actionCreators/actionCreators';
+import { switchBanner } from '../../store/actionCreators';
 
 import { Movie } from '../Movie';
 
 import './index.css';
 
-export const MovieList = ({ show }) => {
+export const MovieList = ({ show, movieApiData }) => {
 	const dispatch = useDispatch();
-	const movies = movieData.map((movie) => (
+	const movies = movieApiData?.map((movie) => (
 		<Movie
 			onClick={() => dispatch(switchBanner(movie))}
 			show={show}
@@ -29,4 +29,5 @@ export const MovieList = ({ show }) => {
 MovieList.propTypes = {
 	setSelectedMovie: PropTypes.func,
 	show: PropTypes.func,
+	movieApiData: PropTypes.array,
 };

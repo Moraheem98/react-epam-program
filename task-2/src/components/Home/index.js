@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { useSelector } from 'react-redux';
 
@@ -9,68 +10,68 @@ import { Navigation } from '../../components/Navigation';
 import { MovieList } from '../../components/MoviesList';
 import { ToggleBar } from '../../components/ToggleBar';
 import { Modal } from '../../components/Modal';
+import { LoaderSpinner } from '../Loader';
 
 import './index.css';
 
 export const Home = () => {
-	// const [openModal, setOpenModal] = useState(false);
-	// const [displayButton, setDisplayButton] = useState(false);
-	// const show = () => setDisplayButton(true);
-	// const selectedMovie = useSelector(selectedMovieSelector);
+	const [openModal, setOpenModal] = useState(false);
+	const [displayButton, setDisplayButton] = useState(false);
+	const show = () => setDisplayButton(true);
+	const selectedMovie = useSelector(selectedMovieSelector);
 
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const movieApi = 'http://localhost:4000/movies?limit=10';
 
 	useEffect(() => {
-		fetch(`http://localhost:4000/movies`)
+		axios
+			.get(movieApi)
 			.then((response) => {
-				if (!response.ok) {
-					throw new Error(
-						`This is an HTTP error: The status is ${response.status}`,
-					);
-				}
-				return response.json();
-			})
-			.then((actualData) => {
-				setData([actualData]);
+				setData([...response.data.data]);
 				setError(null);
 			})
 			.catch((err) => {
 				setError(err.message);
 				setData(null);
 			})
-			.finally(() => {
+			.then(() => {
 				setLoading(false);
 			});
 	}, []);
 
+	const movieMapHandler = (movie) => {
+		return (
+			<ul key={movie.id} style={{ color: 'red' }}>
+				{movie.title}
+			</ul>
+		);
+	};
+
+	const renderApiMovies = data && data.map(movieMapHandler);
+
 	return (
-		<div>
-			<h1>all avaliable movies</h1>
-			{loading && <div>A moment please...</div>}
-			{error && (
-				<div>{`There is a problem fetching the movies data - ${error}`}</div>
+		<div className='homeContainer'>
+			{openModal && <Modal closeModal={setOpenModal} />}
+			<button
+				className='addMovieBtn'
+				onClick={() => {
+					setOpenModal(true);
+				}}
+			>
+				add movie
+			</button>
+			<Navigation displayButton={displayButton} />
+			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
+			<ToggleBar />
+			{!loading ? (
+				<MovieList movieApiData={data} show={show} />
+			) : (
+				<LoaderSpinner />
 			)}
-			<ul>{data.map((item) => console.log(item.data))}</ul>
+			{error && <div>{`Error type - ${error}`}</div>}
+			{renderApiMovies}
 		</div>
 	);
-
-	// return (
-	// 	<div className='homeContainer'>
-	// 		{openModal && <Modal closeModal={setOpenModal} />}
-	// 		<button
-	// 			className='addMovieBtn'
-	// 			onClick={() => {
-	// 				setOpenModal(true);
-	// 			}}
-	// 		>
-	// 			add movie
-	// 		</button>
-	// 		<Navigation displayButton={displayButton} />
-	// 		{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
-	// 		<ToggleBar />
-	// 		<MovieList show={show} />
-	// 	</div>
-	// );
 };
