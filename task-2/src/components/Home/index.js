@@ -41,16 +41,6 @@ export const Home = () => {
 			});
 	}, []);
 
-	const movieMapHandler = (movie) => {
-		return (
-			<ul key={movie.id} style={{ color: 'red' }}>
-				{movie.title}
-			</ul>
-		);
-	};
-
-	const renderApiMovies = data && data.map(movieMapHandler);
-
 	return (
 		<div className='homeContainer'>
 			{openModal && <Modal closeModal={setOpenModal} />}
@@ -71,7 +61,6 @@ export const Home = () => {
 				<LoaderSpinner />
 			)}
 			{error && <div>{`Error type - ${error}`}</div>}
-			{renderApiMovies}
 		</div>
 	);
 };
