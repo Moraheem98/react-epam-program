@@ -18,8 +18,8 @@ export const MovieList = ({ show, movieApiData }) => {
 			show={show}
 			key={movie.id}
 			title={movie.title}
-			year={movie.year}
-			genre={movie.genre}
+			year={movie.release_date}
+			genre={movie.genres}
 		/>
 	));
 

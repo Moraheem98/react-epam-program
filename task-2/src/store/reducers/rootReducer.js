@@ -1,22 +1,22 @@
-import { ALL_MOVIES, MOVIE_FILTER, SORT_BY } from '../actionTypes';
+import { ALL_LOADED_MOVIES, MOVIE_FILTER, SORT_BY } from '../actionTypes';
 
 const initialState = {
-	allMovies: [],
+	movies: [],
 	movieFilter: [],
 	sortBy: [],
 };
 
 export const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case ALL_LOADED_MOVIES:
+			return {
+				...state,
+				movies: [...state.movies, action.payload],
+			};
 		case MOVIE_FILTER:
 			return {
 				...state,
 				movieFilter: [...state.movieFilter, action.payload],
-			};
-		case ALL_MOVIES:
-			return {
-				...state,
-				allMovieArray: [...state.allMovieArray, action.payload],
 			};
 		case SORT_BY:
 			return {

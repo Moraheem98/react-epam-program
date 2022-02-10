@@ -1,16 +1,4 @@
-import {
-	ALL_MOVIES,
-	MOVIE_FILTER,
-	SORT_BY,
-	SWITCH_BANNER,
-} from '../actionTypes';
-
-export const allMovies = (array) => {
-	return {
-		type: ALL_MOVIES,
-		payload: array,
-	};
-};
+import { MOVIE_FILTER, SORT_BY, SWITCH_BANNER } from '../actionTypes';
 
 export const switchBanner = (movie) => {
 	return {

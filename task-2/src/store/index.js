@@ -6,7 +6,9 @@ import { rootReducer } from './reducers/rootReducer';
 
 const reducer = combineReducers({ switchBannerReducer, rootReducer });
 
+const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 export const store = createStore(
 	reducer,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+	composeEnchancer(applyMiddleware(thunk)),
 );
