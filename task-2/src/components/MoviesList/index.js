@@ -14,17 +14,6 @@ import './index.css';
 
 const movieApi = 'http://localhost:4000/movies?limit=10';
 
-// const apiFetchMovies = async () => {
-// 	const response = await axios.get(movieApi);
-// 	dispatch(allLoadedMovies([...response.data.data]));
-// 	console.log(response.data);
-// };
-
-// useEffect(() => {
-// 	apiFetchMovies();
-// 	console.log(allMovies);
-// }, []);
-
 export const MovieList = ({ show }) => {
 	const allMovies = useSelector((state) => state.allMovies.allMovies[0]);
 	// console.log(allMovies);
@@ -46,7 +35,6 @@ export const MovieList = ({ show }) => {
 		<Movie
 			onClick={() => dispatch(switchBanner(movie))}
 			show={show}
-			id={movie.id}
 			key={movie.id}
 			title={movie.title}
 			release_date={movie.release_date}

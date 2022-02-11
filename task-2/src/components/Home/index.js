@@ -10,8 +10,6 @@ import { MovieList } from '../../components/MoviesList';
 import { ToggleBar } from '../../components/ToggleBar';
 import { Modal } from '../../components/Modal';
 
-// import { LoaderSpinner } from '../Loader';
-
 import './index.css';
 
 export const Home = () => {
@@ -35,12 +33,6 @@ export const Home = () => {
 			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
 			<ToggleBar />
 			<MovieList show={show} />
-			{/* {!loading ? (
-				<MovieList movieApiData={moviesData} show={show} />
-			) : (
-				<LoaderSpinner />
-			)} */}
-			{/* {error && <h3>{`Error type - ${error}`}</h3>} */}
 		</div>
 	);
 };

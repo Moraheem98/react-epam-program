@@ -14,8 +14,8 @@ export const MovieDetailsBanner = () => {
 		<Movie
 			key={selectedMovie.id}
 			title={selectedMovie.title}
-			year={selectedMovie.year}
-			genre={selectedMovie.genre}
+			release_date={selectedMovie.release_date}
+			genres={selectedMovie.genres}
 		/>
 	);
 };
