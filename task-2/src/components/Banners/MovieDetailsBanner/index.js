@@ -6,12 +6,12 @@ import { useSelector } from 'react-redux';
 
 import { selectedMovieSelector } from '../../../store/selectors';
 
-import { Movie } from '../../Movie';
+import { MovieCard } from '../../MovieCard';
 
 export const MovieDetailsBanner = () => {
 	const selectedMovie = useSelector(selectedMovieSelector);
 	return (
-		<Movie
+		<MovieCard
 			key={selectedMovie.id}
 			title={selectedMovie.title}
 			release_date={selectedMovie.release_date}

@@ -1,19 +1,13 @@
-import {
-	ALL_LOADED_MOVIES,
-	MOVIE_FILTER,
-	SORT_BY,
-	SWITCH_BANNER,
-} from '../actionTypes';
+import { SET_MOVIES, MOVIE_FILTER, SWITCH_BANNER } from '../actionTypes';
 
-export const allLoadedMovies = (allMovies) => {
+export const setMovies = (allMovies) => {
 	return {
-		type: ALL_LOADED_MOVIES,
+		type: SET_MOVIES,
 		payload: allMovies,
 	};
 };
 
 export const switchBanner = (movie) => {
-	console.log('check', movie);
 	return {
 		type: SWITCH_BANNER,
 		payload: movie,
@@ -21,15 +15,9 @@ export const switchBanner = (movie) => {
 };
 
 export const movieFilter = (filter) => {
+	console.log('check', filter);
 	return {
 		type: MOVIE_FILTER,
 		payload: filter,
-	};
-};
-
-export const sortBy = (sort) => {
-	return {
-		type: SORT_BY,
-		payload: sort,
 	};
 };

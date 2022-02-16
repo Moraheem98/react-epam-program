@@ -1,4 +1,6 @@
 export const selectedMovieSelector = (state) =>
 	state.switchBanner.selectedMovie;
 
-// export const apiMoviesSelector = (state) => state.movies;
+export const allLoadedMoviesSelector = (state) => state.allMovies.allMovies[0];
+
+export const movieFilterSelector = (state) => state.movieFilter;

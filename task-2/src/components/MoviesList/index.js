@@ -4,35 +4,42 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
 
-import axios from 'axios';
+import { switchBanner } from '../../store/actionCreators';
 
-import { switchBanner, allLoadedMovies } from '../../store/actionCreators';
+import { fetchMovies } from '../../store/thunk';
 
-import { Movie } from '../Movie';
+import {
+	allLoadedMoviesSelector,
+	movieFilterSelector,
+} from '../../store/selectors';
+
+import { MovieCard } from '../MovieCard';
 
 import './index.css';
 
-const movieApi = 'http://localhost:4000/movies?limit=10';
-
 export const MovieList = ({ show }) => {
-	const allMovies = useSelector((state) => state.allMovies.allMovies[0]);
-	// console.log(allMovies);
+	const allApiMovies = useSelector(allLoadedMoviesSelector);
+	const movieFilterByGenre = useSelector(movieFilterSelector);
 	const dispatch = useDispatch();
 
 	const apiFetchMovies = async () => {
-		const response = await axios.get(movieApi).catch((err) => {
-			console.log('err', err);
-		});
-		dispatch(allLoadedMovies(response.data.data));
+		dispatch(fetchMovies());
 	};
 
 	useEffect(() => {
 		apiFetchMovies();
 	}, []);
-	// console.log('allMovies: ', allMovies);
 
-	const allMovieRenderList = allMovies?.map((movie) => (
-		<Movie
+	// const filterMovie = allApiMovies?.filter((data) => {
+	// 	if (movieFilterByGenre === '') {
+	// 		return data;
+	// 	} else if (data.genres.includes(movieFilterByGenre)) {
+	// 		return data;
+	// 	}
+	// 	return null;
+	// });
+	const allMovieRenderList = allApiMovies?.map((movie) => (
+		<MovieCard
 			onClick={() => dispatch(switchBanner(movie))}
 			show={show}
 			key={movie.id}
