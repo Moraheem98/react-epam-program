@@ -1,30 +1,30 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { movieFilter } from '../../store/actionCreators';
+import PropTypes from 'prop-types';
 
 import { SortingFilter } from '../SortingFilter';
 
 import './index.css';
 
-export const ToggleBar = () => {
-	const dispatch = useDispatch();
+export const ToggleBar = ({ setFacets }) => {
 	return (
 		<div className='filterContainer'>
 			<div className='toggleBarContainer'>
 				<ul>
-					<li onClick={() => dispatch(movieFilter('All'))}>All</li>
-					<li onClick={() => dispatch(movieFilter('Action'))}>Action</li>
-					<li onClick={() => dispatch(movieFilter('Documentary'))}>
-						Documentary
-					</li>
-					<li onClick={() => dispatch(movieFilter('Drama'))}>Drama</li>
-					<li onClick={() => dispatch(movieFilter('Crime'))}>Crime</li>
-					<li onClick={() => dispatch(movieFilter('Horror'))}>Horror</li>
+					<li onClick={() => setFacets('')}>All</li>
+					<li onClick={() => setFacets('Action')}>Action</li>
+					<li onClick={() => setFacets('Documentary')}>Documentary</li>
+					<li onClick={() => setFacets('Drama')}>Drama</li>
+					<li onClick={() => setFacets('Crime')}>Crime</li>
+					<li onClick={() => setFacets('Horror')}>Horror</li>
+					<li onClick={() => setFacets('Romance')}>Romance</li>
 				</ul>
 			</div>
 			<SortingFilter />
 		</div>
 	);
+};
+
+ToggleBar.propTypes = {
+	setFacets: PropTypes.func,
 };

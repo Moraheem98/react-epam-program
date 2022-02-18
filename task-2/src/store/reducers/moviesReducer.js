@@ -1,8 +1,7 @@
-import { SET_MOVIES, MOVIE_FILTER } from '../actionTypes';
+import { SET_MOVIES } from '../actionTypes';
 
 const initialState = {
 	allMovies: [],
-	movieFilter: '',
 };
 
 export const moviesReducer = (state = initialState, action) => {
@@ -11,11 +10,6 @@ export const moviesReducer = (state = initialState, action) => {
 			return {
 				...state,
 				allMovies: [...state.allMovies, action.payload],
-			};
-		case MOVIE_FILTER:
-			return {
-				...state,
-				movieFilter: action.payload,
 			};
 		default:
 			return state;

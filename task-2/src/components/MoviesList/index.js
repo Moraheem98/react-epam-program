@@ -8,18 +8,14 @@ import { switchBanner } from '../../store/actionCreators';
 
 import { fetchMovies } from '../../store/thunk';
 
-import {
-	allLoadedMoviesSelector,
-	movieFilterSelector,
-} from '../../store/selectors';
+import { allLoadedMoviesSelector } from '../../store/selectors';
 
 import { MovieCard } from '../MovieCard';
 
 import './index.css';
 
-export const MovieList = ({ show }) => {
+export const MovieList = ({ show, facets }) => {
 	const allApiMovies = useSelector(allLoadedMoviesSelector);
-	const movieFilterByGenre = useSelector(movieFilterSelector);
 	const dispatch = useDispatch();
 
 	const apiFetchMovies = async () => {
@@ -30,15 +26,11 @@ export const MovieList = ({ show }) => {
 		apiFetchMovies();
 	}, []);
 
-	// const filterMovie = allApiMovies?.filter((data) => {
-	// 	if (movieFilterByGenre === '') {
-	// 		return data;
-	// 	} else if (data.genres.includes(movieFilterByGenre)) {
-	// 		return data;
-	// 	}
-	// 	return null;
-	// });
-	const allMovieRenderList = allApiMovies?.map((movie) => (
+	const filterMovie = allApiMovies?.filter(
+		(data) => data?.genres?.includes(facets) || facets === '',
+	);
+
+	const allMovieRenderList = filterMovie?.map((movie) => (
 		<MovieCard
 			onClick={() => dispatch(switchBanner(movie))}
 			show={show}
@@ -48,7 +40,6 @@ export const MovieList = ({ show }) => {
 			genres={movie.genres}
 		/>
 	));
-
 	return <div className='movieListContainer'>{allMovieRenderList}</div>;
 };
 
@@ -56,4 +47,5 @@ MovieList.propTypes = {
 	setSelectedMovie: PropTypes.func,
 	show: PropTypes.func,
 	movieApiData: PropTypes.array,
+	facets: PropTypes.string,
 };

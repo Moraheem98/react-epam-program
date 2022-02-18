@@ -3,4 +3,7 @@ export const selectedMovieSelector = (state) =>
 
 export const allLoadedMoviesSelector = (state) => state.allMovies.allMovies[0];
 
-export const movieFilterSelector = (state) => state.movieFilter;
+export const movieFilterSelector = (state) => {
+	console.log(state);
+	return state.movieFilter;
+};

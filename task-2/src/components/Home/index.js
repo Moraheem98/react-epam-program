@@ -9,7 +9,6 @@ import { Navigation } from '../../components/Navigation';
 import { MovieList } from '../../components/MoviesList';
 import { ToggleBar } from '../../components/ToggleBar';
 import { Modal } from '../../components/Modal';
-import { SortingFilter } from '../../components/SortingFilter';
 
 import './index.css';
 
@@ -18,6 +17,7 @@ export const Home = () => {
 	const [displayButton, setDisplayButton] = useState(false);
 	const show = () => setDisplayButton(true);
 	const selectedMovie = useSelector(selectedMovieSelector);
+	const [facets, setfacets] = useState('');
 
 	return (
 		<div className='homeContainer'>
@@ -32,8 +32,8 @@ export const Home = () => {
 			</button>
 			<Navigation displayButton={displayButton} />
 			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
-			<ToggleBar />
-			<MovieList show={show} />
+			<ToggleBar setFacets={setfacets} />
+			<MovieList facets={facets} show={show} />
 		</div>
 	);
 };

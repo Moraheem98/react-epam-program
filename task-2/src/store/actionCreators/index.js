@@ -1,4 +1,4 @@
-import { SET_MOVIES, MOVIE_FILTER, SWITCH_BANNER } from '../actionTypes';
+import { SET_MOVIES, SWITCH_BANNER } from '../actionTypes';
 
 export const setMovies = (allMovies) => {
 	return {
@@ -11,13 +11,5 @@ export const switchBanner = (movie) => {
 	return {
 		type: SWITCH_BANNER,
 		payload: movie,
-	};
-};
-
-export const movieFilter = (filter) => {
-	console.log('check', filter);
-	return {
-		type: MOVIE_FILTER,
-		payload: filter,
 	};
 };
