@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import {
 	fetchMovies,
 	moviesSortedByTitle,
@@ -41,4 +43,8 @@ export const SortingFilter = () => {
 			</select>
 		</aside>
 	);
+};
+
+SortingFilter.propTypes = {
+	sort: PropTypes.func,
 };

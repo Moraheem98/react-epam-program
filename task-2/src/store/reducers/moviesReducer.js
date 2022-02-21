@@ -9,7 +9,7 @@ export const moviesReducer = (state = initialState, action) => {
 		case SET_MOVIES:
 			return {
 				...state,
-				allMovies: [...state.allMovies, action.payload],
+				allMovies: [action.payload],
 			};
 		default:
 			return state;
