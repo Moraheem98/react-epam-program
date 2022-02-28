@@ -27,7 +27,6 @@ export const AddMovieForm = () => {
 
 	const submitHandler = (values) => {
 		setFormSubmit(true);
-		console.log(values);
 		dispatch(submitMovie(values));
 	};
 

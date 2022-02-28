@@ -6,4 +6,3 @@ export const MOVIES_SORTED_BY_DATE = 'MOVIES_SORTED_BY_DATE';
 export const MOVIES_SORTED_BY_RATING = 'MOVIES_SORTED_BY_RATING';
 export const ADD_MOVIE = 'ADD_MOVIE';
 export const DELETE_MOVIE = 'DELETE_MOVIE';
-export const RESET = 'RESET';

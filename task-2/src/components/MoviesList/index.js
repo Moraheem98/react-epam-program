@@ -6,10 +6,9 @@ import PropTypes from 'prop-types';
 
 import { switchBanner } from '../../store/actionCreators';
 import { allLoadedMoviesSelector } from '../../store/selectors';
+import { fetchMovies } from '../../store/thunk';
 
 import { MovieCard } from '../MovieCard';
-
-import { fetchMovies } from '../../store/thunk';
 
 import './index.css';
 

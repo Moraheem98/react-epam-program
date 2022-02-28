@@ -9,20 +9,20 @@ export const moviesReducer = (state = initialState, action) => {
 		case SET_MOVIES:
 			return {
 				...state,
-				allMovies: [action.payload],
+				allMovies: action.payload,
 			};
-		// case ADD_MOVIE:
-		// 	return {
-		// 		...state,
-		// 		allMovies: [action.payload], ...state.allMovies],
-		// 	};
-		// case DELETE_MOVIE:
-		// 	return {
-		// 		...state,
-		// 		allMovies: state.allMovies.filter(
-		// 			(movie) => movie.id !== action.payload,
-		// 		),
-		// 	};
+		case ADD_MOVIE:
+			return {
+				...state,
+				allMovies: [...state.allMovies, action.payload],
+			};
+		case DELETE_MOVIE:
+			return {
+				...state,
+				allMovies: state.allMovies.filter(
+					(movie) => movie.id !== action.payload,
+				),
+			};
 		default:
 			return state;
 	}

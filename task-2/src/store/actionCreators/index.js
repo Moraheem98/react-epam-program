@@ -3,7 +3,6 @@ import {
 	SWITCH_BANNER,
 	ADD_MOVIE,
 	DELETE_MOVIE,
-	RESET,
 } from '../actionTypes';
 
 export const setMovies = (allMovies) => {
@@ -21,7 +20,6 @@ export const switchBanner = (movie) => {
 };
 
 export const submitMovie = (movie) => {
-	console.log('checking submit', submitMovie);
 	return {
 		type: ADD_MOVIE,
 		payload: movie,
@@ -31,12 +29,5 @@ export const removeMovie = (movieId) => {
 	return {
 		type: DELETE_MOVIE,
 		payload: movieId,
-	};
-};
-
-export const resetMovie = (movie) => {
-	return {
-		type: RESET,
-		payload: movie,
 	};
 };
