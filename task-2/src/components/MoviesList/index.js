@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
@@ -16,12 +15,8 @@ export const MovieList = ({ show, facets }) => {
 	const allApiMovies = useSelector(allLoadedMoviesSelector);
 	const dispatch = useDispatch();
 
-	const apiFetchMovies = async () => {
-		dispatch(fetchMovies());
-	};
-
 	useEffect(() => {
-		apiFetchMovies();
+		dispatch(fetchMovies());
 	}, []);
 
 	const filterMovie = allApiMovies?.filter(

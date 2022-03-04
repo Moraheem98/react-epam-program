@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { useSelector } from 'react-redux';
 
 import { selectedMovieSelector } from '../../store/selectors';
@@ -9,6 +8,7 @@ import { Navigation } from '../../components/Navigation';
 import { MovieList } from '../../components/MoviesList';
 import { ToggleBar } from '../../components/ToggleBar';
 import { Modal } from '../../components/Modal';
+// import { LoaderSpinner } from '../../components/Loader';
 
 import './index.css';
 

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useDispatch } from 'react-redux';
 
 import {
@@ -11,7 +10,9 @@ import {
 
 export const SortingFilter = () => {
 	const dispatch = useDispatch();
-
+	const sortingHandlerFunction = (e) => {
+		sortingHandler(e.target.value);
+	};
 	const sortingHandler = (sortedValue) => {
 		switch (sortedValue) {
 			case 'title':
@@ -29,11 +30,7 @@ export const SortingFilter = () => {
 	};
 	return (
 		<aside>
-			<select
-				onChange={(e) => {
-					sortingHandler(e.target.value);
-				}}
-			>
+			<select onChange={sortingHandlerFunction}>
 				<option value='all'>all</option>
 				<option value='title'>title</option>
 				<option value='date'>newest</option>
