@@ -1,32 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 
-import { movieData } from '../../core/data';
-import { switchBanner } from '../../store/actionCreators/actionCreators';
+import { switchBanner } from '../../store/actionCreators';
+import { allLoadedMoviesSelector } from '../../store/selectors';
+import { fetchMovies } from '../../store/thunk';
 
-import { Movie } from '../Movie';
+import { MovieCard } from '../MovieCard';
 
 import './index.css';
 
-export const MovieList = ({ show }) => {
+export const MovieList = ({ show, facets }) => {
+	const allApiMovies = useSelector(allLoadedMoviesSelector);
 	const dispatch = useDispatch();
-	const movies = movieData.map((movie) => (
-		<Movie
+
+	useEffect(() => {
+		dispatch(fetchMovies());
+	}, []);
+
+	const filterMovie = allApiMovies?.filter(
+		(data) => data?.genres?.includes(facets) || facets === '',
+	);
+
+	const allMovieRenderList = filterMovie?.map((movie) => (
+		<MovieCard
 			onClick={() => dispatch(switchBanner(movie))}
 			show={show}
 			key={movie.id}
 			title={movie.title}
-			year={movie.year}
-			genre={movie.genre}
+			release_date={movie.release_date}
+			genres={movie.genres}
 		/>
 	));
-
-	return <div className='movieListContainer'>{movies}</div>;
+	return <div className='movieListContainer'>{allMovieRenderList}</div>;
 };
 
 MovieList.propTypes = {
 	setSelectedMovie: PropTypes.func,
 	show: PropTypes.func,
+	movieApiData: PropTypes.array,
+	facets: PropTypes.string,
 };

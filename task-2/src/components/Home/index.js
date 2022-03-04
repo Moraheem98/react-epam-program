@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { useSelector } from 'react-redux';
 
 import { selectedMovieSelector } from '../../store/selectors';
@@ -14,11 +13,10 @@ import './index.css';
 
 export const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
-
 	const [displayButton, setDisplayButton] = useState(false);
 	const show = () => setDisplayButton(true);
-
 	const selectedMovie = useSelector(selectedMovieSelector);
+	const [facets, setfacets] = useState('');
 
 	return (
 		<div className='homeContainer'>
@@ -33,8 +31,8 @@ export const Home = () => {
 			</button>
 			<Navigation displayButton={displayButton} />
 			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
-			<ToggleBar />
-			<MovieList show={show} />
+			<ToggleBar setFacets={setfacets} />
+			<MovieList facets={facets} show={show} />
 		</div>
 	);
 };

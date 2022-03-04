@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { AddMovieForm } from '../AddMovieForm';
+import { AddMovieForm } from '../Formik/AddMovie';
 
 import './index.css';
 
