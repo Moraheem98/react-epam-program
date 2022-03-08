@@ -7,10 +7,10 @@ export const dropdownOptions = [
 ];
 
 export const formikFieldOptions = [
-	{ title: 'Title', path: 'title' },
-	{ title: 'Genre', path: 'genres' },
-	{ title: 'Runtime', path: 'runtime' },
-	{ title: 'Release Date', path: 'release_date' },
-	{ title: 'Poster Path', path: 'poster_path' },
-	{ title: 'Overview', path: 'overview' },
+	{ title: 'Title', path: 'title', type: 'text' },
+	{ title: 'Genre', path: 'genres', type: 'array' },
+	{ title: 'Runtime', path: 'runtime', type: 'number' },
+	{ title: 'Release Date', path: 'release_date', type: 'date' },
+	{ title: 'Poster Path', path: 'poster_path', type: 'url' },
+	{ title: 'Overview', path: 'overview', type: 'text' },
 ];

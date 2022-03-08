@@ -9,14 +9,7 @@ import { MovieCard } from '../../MovieCard';
 
 export const MovieDetailsBanner = () => {
 	const selectedMovie = useSelector(selectedMovieSelector);
-	return (
-		<MovieCard
-			key={selectedMovie.id}
-			title={selectedMovie.title}
-			release_date={selectedMovie.release_date}
-			genres={selectedMovie.genres}
-		/>
-	);
+	return <MovieCard key={selectedMovie.id} movie={selectedMovie} />;
 };
 
 MovieDetailsBanner.propTypes = {

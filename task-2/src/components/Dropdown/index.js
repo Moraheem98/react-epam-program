@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { dropdownOptions } from '../../constants';
+import { dropdownOptions } from '../../core/constants';
 
 export const Dropdown = () => {
 	const [dropdownValue, setDropdownValue] = useState('');

@@ -12,11 +12,11 @@ import { Modal } from '../../components/Modal';
 import './index.css';
 
 export const Home = () => {
+	const selectedMovie = useSelector(selectedMovieSelector);
 	const [openModal, setOpenModal] = useState(false);
 	const [displayButton, setDisplayButton] = useState(false);
-	const show = () => setDisplayButton(true);
-	const selectedMovie = useSelector(selectedMovieSelector);
 	const [facets, setfacets] = useState('');
+	const show = () => setDisplayButton(true);
 
 	return (
 		<div className='homeContainer'>
@@ -32,7 +32,7 @@ export const Home = () => {
 			<Navigation displayButton={displayButton} />
 			{!selectedMovie ? <SearchBanner /> : <MovieDetailsBanner />}
 			<ToggleBar setFacets={setfacets} />
-			<MovieList facets={facets} show={show} />
+			<MovieList setOpenModal={setOpenModal} facets={facets} show={show} />
 		</div>
 	);
 };

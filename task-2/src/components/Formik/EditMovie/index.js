@@ -1,19 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import PropTypes from 'prop-types';
 
 import { Formik, Form } from 'formik';
 
 import { formikFieldOptions } from '../../../core/constants';
+import { editMovie } from '../../../store/thunk';
 
 import { FormikField } from '../FormikField';
 import { movieValidationSchema } from '../movieValidationSchema';
 
 import './index.css';
 
-export const EditMovieForm = () => {
+export const EditMovieForm = ({ movie }) => {
 	const dispatch = useDispatch();
 
-	const submitHandler = () => {
-		dispatch(submitMovie(values));
+	const submitHandler = (values) => {
+		dispatch(editMovie(values));
 	};
 
 	const formikFieldMapHandler = ({ errors, touched }) =>
@@ -23,6 +27,7 @@ export const EditMovieForm = () => {
 				id={field.path}
 				path={field.path}
 				title={field.title}
+				type={field.type}
 				errors={errors}
 				touched={touched}
 			/>
@@ -31,14 +36,7 @@ export const EditMovieForm = () => {
 	return (
 		<>
 			<Formik
-				initialValues={{
-					title: '',
-					release_date: '',
-					poster_path: '',
-					genres: '',
-					overview: '',
-					runtime: '',
-				}}
+				initialValues={movie}
 				validationSchema={movieValidationSchema}
 				onSubmit={submitHandler}
 			>
@@ -52,9 +50,9 @@ export const EditMovieForm = () => {
 					</Form>
 				)}
 			</Formik>
-			<div>
-				<p>This movie has been edited</p>
-			</div>
 		</>
 	);
+};
+EditMovieForm.propTypes = {
+	movie: PropTypes.object,
 };

@@ -2,12 +2,5 @@
 	border: solid 1px white;
 	width: 33.333333%;
 	margin: 0.5rem;
-}
-
-.buttonContainer {
-	background-color: black;
 	color: white;
-	border: none;
-	width: 100%;
-	cursor: pointer;
 }
