@@ -6,16 +6,25 @@ import { SearchButton } from '../Button/SearchButton';
 
 import './index.css';
 
-export const Navigation = ({ displayButton }) => {
+export const Navigation = ({ setOpenModal }) => {
 	return (
 		<div className='navigationContainer'>
-			<p>netflixroulette</p>
-			{displayButton ? <SearchButton /> : null}
+			<p style={{ color: '#F65261' }}>netflixroulette</p>
+			<div className='btnContainer'>
+				<SearchButton />
+				<button
+					className='universalBtn'
+					onClick={() => {
+						setOpenModal(true);
+					}}
+				>
+					+ add movie
+				</button>
+			</div>
 		</div>
 	);
 };
 
 Navigation.propTypes = {
-	setSelectedMovie: PropTypes.func,
-	displayButton: PropTypes.bool,
+	setOpenModal: PropTypes.func,
 };

@@ -11,7 +11,7 @@ import { MovieCard } from '../MovieCard';
 
 import './index.css';
 
-export const MovieList = ({ show, facets, setOpenModal }) => {
+export const MovieList = ({ facets, setOpenModal }) => {
 	const allApiMovies = useSelector(allLoadedMoviesSelector);
 	const dispatch = useDispatch();
 
@@ -26,7 +26,6 @@ export const MovieList = ({ show, facets, setOpenModal }) => {
 	const allMovieRenderList = filterMovie?.map((movie) => (
 		<MovieCard
 			onClick={() => dispatch(switchSelectedMovie(movie))}
-			show={show}
 			key={movie.id}
 			movie={movie}
 			setOpenModal={setOpenModal}
@@ -36,9 +35,6 @@ export const MovieList = ({ show, facets, setOpenModal }) => {
 };
 
 MovieList.propTypes = {
-	setSelectedMovie: PropTypes.func,
-	show: PropTypes.func,
-	movieApiData: PropTypes.array,
 	facets: PropTypes.string,
 	setOpenModal: PropTypes.func,
 };

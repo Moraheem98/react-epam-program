@@ -9,7 +9,10 @@ export const SearchButton = () => {
 	const dispatch = useDispatch();
 	return (
 		<>
-			<button onClick={() => dispatch(switchSelectedMovie(null))}>
+			<button
+				className='universalBtn'
+				onClick={() => dispatch(switchSelectedMovie(null))}
+			>
 				search again
 			</button>
 		</>

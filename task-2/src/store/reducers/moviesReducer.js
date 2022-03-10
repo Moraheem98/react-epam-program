@@ -1,9 +1,4 @@
-import {
-	SET_MOVIES,
-	// ADD_MOVIE,
-	// DELETE_MOVIE,
-	// EDIT_MOVIE,
-} from '../actionTypes';
+import { SET_MOVIES } from '../actionTypes';
 
 const initialState = {
 	allMovies: [],
@@ -16,18 +11,6 @@ export const moviesReducer = (state = initialState, action) => {
 				...state,
 				allMovies: action.payload,
 			};
-		// case ADD_MOVIE:
-		// 	return {
-		// 		...state,
-		// 		allMovies: [...state.allMovies, action.payload],
-		// 	};
-		// case DELETE_MOVIE:
-		// 	return {
-		// 		...state,
-		// 		allMovies: state.allMovies.filter(
-		// 			(movie) => movie.id !== action.payload,
-		// 		),
-		// 	};
 		default:
 			return state;
 	}

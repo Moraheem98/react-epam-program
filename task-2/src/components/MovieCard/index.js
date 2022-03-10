@@ -11,7 +11,7 @@ import './index.css';
 export const MovieCard = ({ movie, onClick, setOpenModal }) => {
 	const dispatch = useDispatch();
 
-	const onClickFunction = (event) => {
+	const switchBannerHandler = (event) => {
 		event.stopPropagation();
 		dispatch(switchSelectedMovie(movie));
 		setOpenModal(true);
@@ -24,18 +24,22 @@ export const MovieCard = ({ movie, onClick, setOpenModal }) => {
 	};
 
 	return (
-		<>
-			<div className='movieContainer' onClick={onClick}>
-				Title:
-				{movie.title}
-				genre:
-				{movie.genres}
-				year:
-				{movie.release_date}
-				<button onClick={deleteMovieHandler}>remove movie</button>
-				<button onClick={onClickFunction}>edit movie</button>
+		<div className='movieCardContainer' onClick={onClick}>
+			<div className='movieCardImageContainer'>
+				<img
+					className='moviePoster'
+					src={movie.poster_path}
+					alt={movie.title}
+				/>
 			</div>
-		</>
+			<div className='movieCardDetailsContainer'>
+				{movie.title}
+				{movie.genres}
+				{movie.release_date}
+			</div>
+			<button onClick={deleteMovieHandler}>remove movie</button>
+			<button onClick={switchBannerHandler}>edit movie</button>
+		</div>
 	);
 };
 

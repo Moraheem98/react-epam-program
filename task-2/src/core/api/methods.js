@@ -59,6 +59,6 @@ export const editMovieRequest = async (movie) => {
 };
 export const deleteMovieRequest = async (movie) => {
 	const { moviesEndpoint } = API_CONFIG;
-	const string = `${moviesEndpoint}/${movie.id}`;
-	await restRequest(null, 'DELETE', string);
+	const URL = `${moviesEndpoint}/${movie.id}`;
+	await restRequest(null, 'DELETE', URL);
 };
