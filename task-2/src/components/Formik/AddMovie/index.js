@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { Formik, Form } from 'formik';
 
-import { submitMovie } from '../../../store/actionCreators';
 import { formikFieldOptions } from '../../../core/constants';
+import { addMovie } from '../../../store/thunk';
 
 import { FormikField } from '../FormikField';
 import { movieValidationSchema } from '../movieValidationSchema';
@@ -15,7 +15,8 @@ export const AddMovieForm = () => {
 	const dispatch = useDispatch();
 
 	const submitHandler = (values) => {
-		dispatch(submitMovie(values));
+		dispatch(addMovie(values));
+		values.genres = [values.genres];
 	};
 
 	const formikFieldMapHandler = ({ errors, touched }) =>
@@ -25,6 +26,7 @@ export const AddMovieForm = () => {
 				id={field.path}
 				path={field.path}
 				title={field.title}
+				type={field.type}
 				errors={errors}
 				touched={touched}
 			/>
@@ -39,7 +41,7 @@ export const AddMovieForm = () => {
 					poster_path: '',
 					genres: '',
 					overview: '',
-					runtime: '',
+					runtime: 0,
 				}}
 				validationSchema={movieValidationSchema}
 				onSubmit={submitHandler}
@@ -54,9 +56,6 @@ export const AddMovieForm = () => {
 					</Form>
 				)}
 			</Formik>
-			<div>
-				<p>Your movie will be added to the list</p>
-			</div>
 		</>
 	);
 };

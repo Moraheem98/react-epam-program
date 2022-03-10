@@ -3,10 +3,7 @@
 	padding: 2rem;
 }
 .searchContainer input {
+	background-color: #323232cc;
+	height: 24px;
 	width: 60%;
-	padding: 0.5rem;
-}
-
-.searchContainer button {
-	padding: 0.5rem;
 }

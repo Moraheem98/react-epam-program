@@ -1,13 +1,14 @@
-.movieContainer {
-	border: solid 1px white;
-	width: 33.333333%;
-	margin: 0.5rem;
+.movieCardContainer {
+	border-radius: 8px;
+	overflow: hidden;
 }
 
-.buttonContainer {
-	background-color: black;
-	color: white;
-	border: none;
-	width: 100%;
-	cursor: pointer;
+.movieCardImageContainer {
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+}
+
+.movieCardDetailsContainer {
+	height: 200px;
 }

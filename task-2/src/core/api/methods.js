@@ -31,3 +31,34 @@ export const requestMoviesByRating = async () => {
 	const moviesData = await apiData.json();
 	return moviesData.data;
 };
+
+export const restRequest = async (payload, method, endPoint) => {
+	const { baseUrl } = API_CONFIG;
+
+	try {
+		const apiLink = `${baseUrl}${endPoint}`;
+
+		await fetch(apiLink, {
+			method: method,
+			body: payload ? JSON.stringify(payload) : null,
+			headers: {
+				'content-type': 'application/json',
+			},
+		});
+	} catch (error) {}
+};
+
+export const addMovieRequest = async (movie) => {
+	const { moviesEndpoint } = API_CONFIG;
+	await restRequest(movie, 'POST', moviesEndpoint);
+};
+
+export const editMovieRequest = async (movie) => {
+	const { moviesEndpoint } = API_CONFIG;
+	await restRequest(movie, 'PUT', moviesEndpoint);
+};
+export const deleteMovieRequest = async (movie) => {
+	const { moviesEndpoint } = API_CONFIG;
+	const URL = `${moviesEndpoint}/${movie.id}`;
+	await restRequest(null, 'DELETE', URL);
+};
