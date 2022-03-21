@@ -1,4 +1,4 @@
-import { SET_MOVIES, SWITCH_BANNER } from '../actionTypes';
+import { SET_MOVIE, SET_MOVIES } from '../actionTypes';
 
 export const setMovies = (allMovies) => {
 	return {
@@ -7,9 +7,9 @@ export const setMovies = (allMovies) => {
 	};
 };
 
-export const switchSelectedMovie = (movie) => {
+export const setMovie = (movie) => {
 	return {
-		type: SWITCH_BANNER,
+		type: SET_MOVIE,
 		payload: movie,
 	};
 };

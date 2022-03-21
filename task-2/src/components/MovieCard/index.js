@@ -1,50 +1,49 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
 import { deleteMovie } from '../../store/thunk';
-import { switchSelectedMovie } from '../../store/actionCreators';
 
 import './index.css';
 
-export const MovieCard = ({ movie, onClick, setOpenModal }) => {
+export const MovieCard = ({
+	movie: { id, poster_path, title, genres, release_date },
+	onClick,
+	setOpenModal,
+}) => {
 	const dispatch = useDispatch();
 
-	const switchBannerHandler = (event) => {
-		event.stopPropagation();
-		dispatch(switchSelectedMovie(movie));
+	const editMovieHandler = () => {
 		setOpenModal(true);
 	};
 
 	const deleteMovieHandler = (event) => {
 		event.stopPropagation();
-		dispatch(switchSelectedMovie(null));
 		dispatch(deleteMovie(movie));
 	};
-
 	return (
-		<div className='movieCardContainer' onClick={onClick}>
-			<div className='movieCardImageContainer'>
-				<img
-					className='moviePoster'
-					src={movie.poster_path}
-					alt={movie.title}
-				/>
-			</div>
-			<div className='movieCardDetailsContainer'>
-				{movie.title}
-				{movie.genres}
-				{movie.release_date}
-			</div>
-			<button onClick={deleteMovieHandler}>remove movie</button>
-			<button onClick={switchBannerHandler}>edit movie</button>
+		<div className='movieCardContainer'>
+			<Link to={`/movies/${id}`}>
+				<div className='movieCardImageContainer'>
+					<img className='moviePoster' src={poster_path} alt={title} />
+				</div>
+				<div className='movieCardDetailsContainer'>
+					{title}
+					{genres}
+					{release_date}
+				</div>
+				<button onClick={deleteMovieHandler}>remove movie</button>
+				<button onClick={editMovieHandler}>edit movie</button>
+			</Link>
 		</div>
 	);
 };
 
 MovieCard.propTypes = {
 	show: PropTypes.func,
+	id: PropTypes.number,
 	movie: PropTypes.object,
 	onClick: PropTypes.func,
 	setOpenModal: PropTypes.func,

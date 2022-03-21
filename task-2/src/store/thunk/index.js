@@ -6,13 +6,20 @@ import {
 	editMovieRequest,
 	addMovieRequest,
 	deleteMovieRequest,
+	requestMoviesBySearch,
+	requestMovie,
 } from '../../core/api/methods';
 
-import { setMovies } from '../actionCreators';
+import { setMovie, setMovies } from '../actionCreators';
 
 export const fetchMovies = () => async (dispatch) => {
 	const movies = await requestMovies();
 	dispatch(setMovies(movies));
+};
+
+export const fetchMovie = (id) => async (dispatch) => {
+	const movie = await requestMovie(id);
+	dispatch(setMovie(movie));
 };
 
 export const moviesSortedByTitle = () => async (dispatch) => {
@@ -27,6 +34,11 @@ export const moviesSortedByDate = () => async (dispatch) => {
 
 export const moviesSortedByRating = () => async (dispatch) => {
 	const movies = await requestMoviesByRating();
+	dispatch(setMovies(movies));
+};
+
+export const fetchMoviesBySearch = (movie_name) => async (dispatch) => {
+	const movies = await requestMoviesBySearch(movie_name);
 	dispatch(setMovies(movies));
 };
 

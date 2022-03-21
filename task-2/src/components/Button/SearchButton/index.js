@@ -1,24 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-
-import PropTypes from 'prop-types';
-
-import { switchSelectedMovie } from '../../../store/actionCreators';
+import { Link } from 'react-router-dom';
 
 export const SearchButton = () => {
-	const dispatch = useDispatch();
 	return (
-		<>
-			<button
-				className='universalBtn'
-				onClick={() => dispatch(switchSelectedMovie(null))}
-			>
-				search again
-			</button>
-		</>
+		<Link to='/search'>
+			<button className='universalBtn'>search again</button>
+		</Link>
 	);
-};
-
-SearchButton.propTypes = {
-	setSelectedMovie: PropTypes.func,
 };

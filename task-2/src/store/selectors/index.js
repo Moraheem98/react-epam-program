@@ -1,4 +1,4 @@
 export const selectedMovieSelector = (state) =>
-	state.switchBanner.selectedMovie;
+	state.selectedMovie.selectedMovie;
 
 export const allLoadedMoviesSelector = (state) => state.allMovies.allMovies;

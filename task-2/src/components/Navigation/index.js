@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -11,7 +12,9 @@ export const Navigation = ({ setOpenModal }) => {
 		<div className='navigationContainer'>
 			<p style={{ color: '#F65261' }}>netflixroulette</p>
 			<div className='btnContainer'>
-				<SearchButton />
+				<Link to='/'>
+					<SearchButton />
+				</Link>
 				<button
 					className='universalBtn'
 					onClick={() => {

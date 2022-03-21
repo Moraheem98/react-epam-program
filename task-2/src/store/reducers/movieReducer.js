@@ -1,12 +1,12 @@
-import { SWITCH_BANNER } from '../actionTypes';
+import { SET_MOVIE } from '../actionTypes';
 
 const initialState = {
 	selectedMovie: null,
 };
 
-export const switchBannerReducer = (state = initialState, action) => {
+export const movieReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SWITCH_BANNER:
+		case SET_MOVIE:
 			return {
 				...state,
 				selectedMovie: action.payload,
