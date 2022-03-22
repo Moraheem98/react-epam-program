@@ -25,16 +25,13 @@ export const MoviePage = () => {
 
 	useEffect(() => {
 		dispatch(fetchMovie(id));
-	}, []);
+	}, [id]);
 
 	return (
 		<div className='homeContainer'>
 			{openModal && <Modal closeModal={setOpenModal} />}
 			<Navigation setOpenModal={setOpenModal} />
-			<div>
-				{console.log('checking123', selectedMovie)}
-			</div>
-			<MovieDetailsBanner selectedMovie={selectedMovie} />
+			{selectedMovie && <MovieDetailsBanner selectedMovie={selectedMovie} />}
 			<ToggleBar setFacets={setfacets} />
 			<MovieList setOpenModal={setOpenModal} facets={facets} />
 		</div>

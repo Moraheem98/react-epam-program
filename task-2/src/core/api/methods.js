@@ -10,10 +10,10 @@ export const requestMovies = async () => {
 
 export const requestMovie = async (id) => {
 	const { baseUrl, moviesEndpoint } = API_CONFIG;
-	const apiLink = `${baseUrl}${moviesEndpoint}?movies/${id}`;
+	const apiLink = `${baseUrl}${moviesEndpoint}/${id}`;
 	const apiData = await fetch(apiLink);
 	const movieData = await apiData.json();
-	return movieData.data;
+	return movieData;
 };
 
 export const requestMoviesByTitle = async () => {
