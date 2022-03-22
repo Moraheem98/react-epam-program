@@ -10,7 +10,6 @@ import './index.css';
 
 export const MovieCard = ({
 	movie: { id, poster_path, title, genres, release_date },
-	onClick,
 	setOpenModal,
 }) => {
 	const dispatch = useDispatch();

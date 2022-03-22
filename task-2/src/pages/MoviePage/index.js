@@ -31,9 +31,10 @@ export const MoviePage = () => {
 		<div className='homeContainer'>
 			{openModal && <Modal closeModal={setOpenModal} />}
 			<Navigation setOpenModal={setOpenModal} />
-			<div className='headerContainer'>
-				<MovieDetailsBanner selectedMovie={selectedMovie} />
+			<div>
+				{console.log('checking123', selectedMovie)}
 			</div>
+			<MovieDetailsBanner selectedMovie={selectedMovie} />
 			<ToggleBar setFacets={setfacets} />
 			<MovieList setOpenModal={setOpenModal} facets={facets} />
 		</div>

@@ -2,7 +2,6 @@ import { SET_MOVIES } from '../actionTypes';
 
 const initialState = {
 	allMovies: [],
-	movieInstance: {},
 };
 
 export const moviesReducer = (state = initialState, action) => {
@@ -12,11 +11,6 @@ export const moviesReducer = (state = initialState, action) => {
 				...state,
 				allMovies: action.payload,
 			};
-		// case SET_MOVIE_INSTANCE:
-		// 	return {
-		// 		...state,
-		// 		movieInstance: action.payload.movieInstance,
-		// 	};
 		default:
 			return state;
 	}
