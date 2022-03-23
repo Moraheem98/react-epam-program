@@ -16,6 +16,14 @@ export const requestMovie = async (id) => {
 	return movieData;
 };
 
+export const requestMoviesByGenre = async (movie_genre) => {
+	const { baseUrl, moviesEndpoint } = API_CONFIG;
+	const apiLink = `${baseUrl}${moviesEndpoint}?searchBy=genres&filter=${movie_genre}`;
+	const apiData = await fetch(apiLink);
+	const moviesData = await apiData.json();
+	return moviesData.data;
+};
+
 export const requestMoviesByTitle = async () => {
 	const { baseUrl, moviesEndpoint } = API_CONFIG;
 	const apiLink = `${baseUrl}${moviesEndpoint}?sortBy=title&sortOrder=asc`;

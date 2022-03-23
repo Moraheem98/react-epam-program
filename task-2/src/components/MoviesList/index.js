@@ -10,7 +10,7 @@ import { MovieCard } from '../MovieCard';
 
 import './index.css';
 
-export const MovieList = ({ facets, setOpenModal }) => {
+export const MovieList = ({ setOpenModal }) => {
 	const allApiMovies = useSelector(allLoadedMoviesSelector);
 	const dispatch = useDispatch();
 
@@ -18,16 +18,11 @@ export const MovieList = ({ facets, setOpenModal }) => {
 		dispatch(fetchMovies());
 	}, []);
 
-	const filterMovie = allApiMovies?.filter(
-		(data) => data?.genres?.includes(facets) || facets === '',
-	);
-
-	const allMovieRenderList = filterMovie?.map((movie) => (
+	const allMovieRenderList = allApiMovies.map((movie) => (
 		<MovieCard key={movie.id} movie={movie} setOpenModal={setOpenModal} />
 	));
 	return <div className='movieListContainer'>{allMovieRenderList}</div>;
 };
 MovieList.propTypes = {
-	facets: PropTypes.string,
 	setOpenModal: PropTypes.func,
 };

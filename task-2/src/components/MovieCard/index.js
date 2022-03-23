@@ -41,9 +41,6 @@ export const MovieCard = ({
 };
 
 MovieCard.propTypes = {
-	show: PropTypes.func,
-	id: PropTypes.number,
 	movie: PropTypes.object,
-	onClick: PropTypes.func,
 	setOpenModal: PropTypes.func,
 };
