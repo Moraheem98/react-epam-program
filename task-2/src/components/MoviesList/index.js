@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import PropTypes from 'prop-types';
 
-import { allLoadedMoviesSelector } from '../../store/selectors';
 import { fetchMovies } from '../../store/thunk';
+import { allLoadedMoviesSelector } from '../../store/selectors';
 
 import { MovieCard } from '../MovieCard';
 

@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 import { deleteMovie } from '../../store/thunk';
 
+import { AppButton } from '../Button';
+
 import './index.css';
 
 export const MovieCard = ({
@@ -33,9 +35,9 @@ export const MovieCard = ({
 					{genres}
 					{release_date}
 				</div>
-				<button onClick={deleteMovieHandler}>remove movie</button>
-				<button onClick={editMovieHandler}>edit movie</button>
 			</Link>
+			<AppButton text='removie movie' clickHandler={deleteMovieHandler} />
+			<AppButton text='edit movie' clickHandler={editMovieHandler} />
 		</div>
 	);
 };

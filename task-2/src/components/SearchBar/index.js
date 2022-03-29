@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { fetchMoviesBySearch } from '../../store//thunk';
 
+import { AppButton } from '../Button';
+
 import './index.css';
 
 export const SearchBar = () => {
@@ -21,6 +23,7 @@ export const SearchBar = () => {
 			e.preventDefault();
 			dispatch(fetchMoviesBySearch(textInput));
 			setTextInput('');
+			console.log('heelo');
 		},
 		[textInput],
 	);
@@ -34,9 +37,11 @@ export const SearchBar = () => {
 				type='text'
 				placeholder='Search any Movie...'
 			/>
-			<button onClick={submitSearchHandler} className='searchBtn'>
-				search
-			</button>
+			<AppButton
+				text='submit'
+				type='submit'
+				clickHandler={submitSearchHandler}
+			/>
 		</div>
 	);
 };

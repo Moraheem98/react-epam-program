@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 
 import { Modal } from '../../components/Modal';
 import { Navigation } from '../../components/Navigation';
+import { SearchBanner } from '../../components/Banners/SearchBanner';
 import { ToggleBar } from '../../components/ToggleBar';
 import { MovieList } from '../../components/MoviesList';
 
-import '../../../src/assets/GlobalStyles/__globalButtons.css';
-
 import './index.css';
-import { SearchBanner } from '../../components/Banners/SearchBanner';
 
 export const HomePage = () => {
 	const [openModal, setOpenModal] = useState(false);

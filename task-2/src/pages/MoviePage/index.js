@@ -2,17 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
-import '../../../src/assets/GlobalStyles/__globalButtons.css';
-
 import { selectedMovieSelector } from '../../store/selectors';
 
 import { fetchMovie } from '../../store/thunk';
 
-import { MovieDetailsBanner } from '../../components/Banners/MovieDetailsBanner';
 import { Modal } from '../../components/Modal';
 import { Navigation } from '../../components/Navigation';
-import { MovieList } from '../../components/MoviesList';
+import { MovieDetailsBanner } from '../../components/Banners/MovieDetailsBanner';
 import { ToggleBar } from '../../components/ToggleBar';
+import { MovieList } from '../../components/MoviesList';
 
 import './index.css';
 

@@ -2,10 +2,10 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { MovieCard } from '../../MovieCard';
+import { MovieDetailsCard } from '../../MovieDetailsCard';
 
 export const MovieDetailsBanner = ({ selectedMovie }) => {
-	return <MovieCard key={selectedMovie.id} movie={selectedMovie} />;
+	return <MovieDetailsCard key={selectedMovie.id} movie={selectedMovie} />;
 };
 
 MovieDetailsBanner.propTypes = {

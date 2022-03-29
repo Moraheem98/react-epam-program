@@ -9,6 +9,8 @@ import { addMovie } from '../../../store/thunk';
 import { FormikField } from '../FormikField';
 import { movieValidationSchema } from '../movieValidationSchema';
 
+import { AppButton } from '../../Button';
+
 import './index.css';
 
 export const AddMovieForm = () => {
@@ -39,7 +41,7 @@ export const AddMovieForm = () => {
 					title: '',
 					release_date: '',
 					poster_path: '',
-					genres: '',
+					genres: [],
 					overview: '',
 					runtime: 0,
 				}}
@@ -50,8 +52,8 @@ export const AddMovieForm = () => {
 					<Form>
 						<div>
 							{formikFieldMapHandler({ errors, touched })}
-							<button type='submit'>Submit</button>
-							<button type='reset'>reset</button>
+							<AppButton text='submit' type='submit' />
+							<AppButton text='reset' type='reset' />
 						</div>
 					</Form>
 				)}

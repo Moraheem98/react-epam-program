@@ -1,28 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-import { SearchButton } from '../Button/SearchButton';
+import { AppButton } from '../Button';
 
 import './index.css';
 
 export const Navigation = ({ setOpenModal }) => {
+	const modalHandler = () => {
+		setOpenModal(true);
+	};
+
 	return (
 		<div className='navigationContainer'>
 			<p style={{ color: '#F65261' }}>netflixroulette</p>
 			<div className='btnContainer'>
-				<Link to='/'>
-					<SearchButton />
-				</Link>
-				<button
-					className='universalBtn'
-					onClick={() => {
-						setOpenModal(true);
-					}}
-				>
-					+ add movie
-				</button>
+				<AppButton text='search again' url='/search' />
+				<AppButton text='+ add movie' clickHandler={modalHandler} />
 			</div>
 		</div>
 	);
