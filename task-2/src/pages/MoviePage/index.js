@@ -12,11 +12,10 @@ import { MovieDetailsBanner } from '../../components/Banners/MovieDetailsBanner'
 import { ToggleBar } from '../../components/ToggleBar';
 import { MovieList } from '../../components/MoviesList';
 
-import './index.css';
+import './index.scss';
 
 export const MoviePage = () => {
 	const [openModal, setOpenModal] = useState(false);
-	const [facets, setfacets] = useState('');
 	const dispatch = useDispatch();
 	const selectedMovie = useSelector(selectedMovieSelector);
 	const { id } = useParams();
@@ -28,10 +27,10 @@ export const MoviePage = () => {
 	return (
 		<div className='homeContainer'>
 			{openModal && <Modal closeModal={setOpenModal} />}
-			<Navigation setOpenModal={setOpenModal} />
+			<Navigation setOpenModal={setOpenModal} selectedMovie={selectedMovie} />
 			{selectedMovie && <MovieDetailsBanner selectedMovie={selectedMovie} />}
-			<ToggleBar setFacets={setfacets} />
-			<MovieList setOpenModal={setOpenModal} facets={facets} />
+			<ToggleBar />
+			<MovieList setOpenModal={setOpenModal} />
 		</div>
 	);
 };

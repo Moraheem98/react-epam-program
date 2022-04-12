@@ -5,7 +5,7 @@ import { fetchMoviesBySearch } from '../../store//thunk';
 
 import { AppButton } from '../Button';
 
-import './index.css';
+import './index.scss';
 
 export const SearchBar = () => {
 	const dispatch = useDispatch();
@@ -23,7 +23,6 @@ export const SearchBar = () => {
 			e.preventDefault();
 			dispatch(fetchMoviesBySearch(textInput));
 			setTextInput('');
-			console.log('heelo');
 		},
 		[textInput],
 	);

@@ -8,12 +8,12 @@ import { deleteMovie } from '../../store/thunk';
 
 import { AppButton } from '../Button';
 
-import './index.css';
+import { MoviePoster } from './MoviePoster';
 
-export const MovieCard = ({
-	movie: { id, poster_path, title, genres, release_date },
-	setOpenModal,
-}) => {
+import './index.scss';
+
+export const MovieCard = ({ movie, setOpenModal }) => {
+	const { id, poster_path, title, genres, release_date } = movie;
 	const dispatch = useDispatch();
 
 	const editMovieHandler = () => {
@@ -24,19 +24,24 @@ export const MovieCard = ({
 		event.stopPropagation();
 		dispatch(deleteMovie(movie));
 	};
+
+	const allGenres = genres.map((g) => <li key={g}>{g}</li>);
+
 	return (
 		<div className='movieCardContainer'>
 			<Link to={`/movies/${id}`}>
 				<div className='movieCardImageContainer'>
-					<img className='moviePoster' src={poster_path} alt={title} />
+					<MoviePoster url={poster_path} />
 				</div>
 				<div className='movieCardDetailsContainer'>
-					{title}
-					{genres}
-					{release_date}
+					<div className='titleDetails'>
+						<h4>{title}</h4>
+						<span>{release_date}</span>
+					</div>
+					<div className='genresList'>{allGenres}</div>
 				</div>
 			</Link>
-			<AppButton text='removie movie' clickHandler={deleteMovieHandler} />
+			<AppButton text='remove movie' clickHandler={deleteMovieHandler} />
 			<AppButton text='edit movie' clickHandler={editMovieHandler} />
 		</div>
 	);

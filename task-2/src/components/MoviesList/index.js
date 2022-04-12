@@ -8,17 +8,17 @@ import { allLoadedMoviesSelector } from '../../store/selectors';
 
 import { MovieCard } from '../MovieCard';
 
-import './index.css';
+import './index.scss';
 
 export const MovieList = ({ setOpenModal }) => {
-	const allApiMovies = useSelector(allLoadedMoviesSelector);
+	const movies = useSelector(allLoadedMoviesSelector);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchMovies());
 	}, []);
 
-	const allMovieRenderList = allApiMovies.map((movie) => (
+	const allMovieRenderList = movies.map((movie) => (
 		<MovieCard key={movie.id} movie={movie} setOpenModal={setOpenModal} />
 	));
 	return <div className='movieListContainer'>{allMovieRenderList}</div>;

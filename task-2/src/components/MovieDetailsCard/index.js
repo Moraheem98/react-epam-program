@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import './index.css';
+import './index.scss';
 
 export const MovieDetailsCard = ({
 	movie: {
@@ -15,17 +15,19 @@ export const MovieDetailsCard = ({
 		runtime,
 	},
 }) => {
+	const allGenres = genres.map((g) => <li key={g}>{g}</li>);
+
 	return (
-		<div className='movieDetailsContainer'>
-			<div className='movieDetailsImageContainer'>
-				<img className='movieDetailsPoster' src={poster_path} alt={title} />
+		<div className='selectedMovieCardContainer'>
+			<div className='selectedMovieCardImageContainer'>
+				<img src={poster_path} alt={title} />
 			</div>
-			<div className='movieDetailsContainer'>
-				<div>
-					{title}
-					{vote_average}
+			<div className='selectedMovieDetailsContainer'>
+				<div className='titleSection'>
+					<h2>{title}</h2>
+					<button>{vote_average}</button>
 				</div>
-				<div>{genres}</div>
+				<div className='genresList'>{allGenres}</div>
 				<div>
 					{release_date}
 					{runtime}
@@ -38,5 +40,4 @@ export const MovieDetailsCard = ({
 
 MovieDetailsCard.propTypes = {
 	movie: PropTypes.object,
-	setOpenModal: PropTypes.func,
 };

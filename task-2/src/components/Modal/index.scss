@@ -1,0 +1,31 @@
+.modalBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.modalContainer {
+	position: fixed;
+	left: 25%;
+	top: 25%;
+	color: white;
+	width: 80vh;
+	background-color: black;
+}
+.modalHeader {
+	display: flex;
+	justify-content: space-between;
+	text-transform: uppercase;
+	padding: 12px;
+}
+.modalCloseBtn {
+	border: black solid 1px;
+	border-radius: 50%;
+	padding: 0.9rem;
+	background-color: grey;
+}

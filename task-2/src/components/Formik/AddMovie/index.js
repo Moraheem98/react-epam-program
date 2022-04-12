@@ -6,19 +6,19 @@ import { Formik, Form } from 'formik';
 import { formikFieldOptions } from '../../../core/constants';
 import { addMovie } from '../../../store/thunk';
 
-import { FormikField } from '../FormikField';
-import { movieValidationSchema } from '../movieValidationSchema';
-
 import { AppButton } from '../../Button';
 
-import './index.css';
+import { FormikField } from '../FormikFieldInput/FormikField';
+import { movieValidationSchema } from '../movieValidationSchema';
+
+import './index.scss';
 
 export const AddMovieForm = () => {
 	const dispatch = useDispatch();
 
 	const submitHandler = (values) => {
-		dispatch(addMovie(values));
 		values.genres = [values.genres];
+		dispatch(addMovie(values));
 	};
 
 	const formikFieldMapHandler = ({ errors, touched }) =>
@@ -41,7 +41,7 @@ export const AddMovieForm = () => {
 					title: '',
 					release_date: '',
 					poster_path: '',
-					genres: [],
+					genres: '',
 					overview: '',
 					runtime: 0,
 				}}
@@ -50,10 +50,14 @@ export const AddMovieForm = () => {
 			>
 				{({ errors, touched }) => (
 					<Form>
-						<div>
-							{formikFieldMapHandler({ errors, touched })}
-							<AppButton text='submit' type='submit' />
-							<AppButton text='reset' type='reset' />
+						<div className='formConatiner'>
+							<div className='fieldsContainer'>
+								{formikFieldMapHandler({ errors, touched })}
+							</div>
+							<section>
+								<AppButton text='submit' type='submit' />
+								<AppButton text='reset' type='reset' />
+							</section>
 						</div>
 					</Form>
 				)}
