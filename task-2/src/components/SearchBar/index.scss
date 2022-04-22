@@ -1,0 +1,19 @@
+.searchContainer {
+	color: white;
+	padding: 3rem;
+}
+.searchContainer input {
+	background-color: #323232cc;
+	height: 40px;
+	width: 60%;
+	margin-top: 16px;
+	color: white;
+}
+::placeholder {
+	color: white;
+}
+.searchContainer {
+	input {
+		margin-right: 0.5rem;
+	}
+}

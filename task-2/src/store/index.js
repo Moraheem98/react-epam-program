@@ -1,11 +1,11 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import { switchBannerReducer } from '../store/reducers/switchBannerReducer';
+import { movieReducer } from './reducers/movieReducer';
 import { moviesReducer } from './reducers/moviesReducer';
 
 const reducer = combineReducers({
-	switchBanner: switchBannerReducer,
+	selectedMovie: movieReducer,
 	allMovies: moviesReducer,
 });
 

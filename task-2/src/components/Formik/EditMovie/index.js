@@ -8,16 +8,17 @@ import { Formik, Form } from 'formik';
 import { formikFieldOptions } from '../../../core/constants';
 import { editMovie } from '../../../store/thunk';
 
-import { FormikField } from '../FormikField';
+import { AppButton } from '../../Button';
+
+import { FormikField } from '../FormikFieldInput/FormikField';
 import { movieValidationSchema } from '../movieValidationSchema';
 
-import './index.css';
-
-export const EditMovieForm = ({ movie }) => {
+export const EditMovieForm = ({ movie, closeModal }) => {
 	const dispatch = useDispatch();
 
 	const submitHandler = (values) => {
 		dispatch(editMovie(values));
+		closeModal();
 	};
 
 	const formikFieldMapHandler = ({ errors, touched }) =>
@@ -42,10 +43,14 @@ export const EditMovieForm = ({ movie }) => {
 			>
 				{({ errors, touched }) => (
 					<Form>
-						<div>
-							{formikFieldMapHandler({ errors, touched })}
-							<button type='submit'>Submit</button>
-							<button type='reset'>reset</button>
+						<div className='formConatiner'>
+							<div className='fieldsContainer'>
+								{formikFieldMapHandler({ errors, touched })}
+							</div>
+							<section>
+								<AppButton text='submit' type='submit' />
+								<AppButton text='reset' type='reset' />
+							</section>
 						</div>
 					</Form>
 				)}
@@ -55,4 +60,5 @@ export const EditMovieForm = ({ movie }) => {
 };
 EditMovieForm.propTypes = {
 	movie: PropTypes.object,
+	closeModal: PropTypes.func,
 };

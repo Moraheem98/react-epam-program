@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
-import './index.css';
+import { fetchMoviesBySearch } from '../../store//thunk';
+
+import { AppButton } from '../Button';
+
+import './index.scss';
 
 export const SearchBar = () => {
+	const dispatch = useDispatch();
+	const [textInput, setTextInput] = useState('');
+
+	const textInputHandler = useCallback(
+		(e) => {
+			setTextInput(e.target.value);
+		},
+		[textInput],
+	);
+
+	const submitSearchHandler = useCallback(
+		(e) => {
+			e.preventDefault();
+			dispatch(fetchMoviesBySearch(textInput));
+			setTextInput('');
+		},
+		[textInput],
+	);
+
 	return (
 		<div className='searchContainer'>
 			<h2>FIND YOUR MOVIE</h2>
-			<input placeholder='Search any Movie...' />
-			<button className='searchBtn'>search</button>
+			<input
+				value={textInput}
+				onChange={textInputHandler}
+				type='text'
+				placeholder='Search any Movie...'
+			/>
+			<AppButton
+				text='submit'
+				type='submit'
+				clickHandler={submitSearchHandler}
+			/>
 		</div>
 	);
 };

@@ -8,6 +8,8 @@ import {
 	moviesSortedByRating,
 } from '../../store/thunk';
 
+import './index.scss';
+
 export const SortingFilter = () => {
 	const dispatch = useDispatch();
 	const sortingHandlerFunction = (e) => {
@@ -29,13 +31,11 @@ export const SortingFilter = () => {
 		}
 	};
 	return (
-		<aside>
-			<select onChange={sortingHandlerFunction}>
-				<option value='all'>all</option>
-				<option value='title'>title</option>
-				<option value='date'>newest</option>
-				<option value='rating'>rating</option>
-			</select>
-		</aside>
+		<select className='dropDownSelector' onChange={sortingHandlerFunction}>
+			<option value='all'>All</option>
+			<option value='title'>Title</option>
+			<option value='date'>Newest</option>
+			<option value='rating'>Rating</option>
+		</select>
 	);
 };

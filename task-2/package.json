@@ -11,7 +11,8 @@
 		"eslint": "eslint ./src",
 		"eslint:fix": "npm run eslint -- --fix",
 		"lint": "npm run prettier && npm run eslint",
-		"lint:fix": "npm run prettier:fix && npm run eslint:fix"
+		"lint:fix": "npm run prettier:fix && npm run eslint:fix",
+		"test": "jest"
 	},
 	"author": "Mohammed Raheem",
 	"license": "MIT",
@@ -49,6 +50,7 @@
 		"eslint-plugin-react": "^7.27.1",
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"html-webpack-plugin": "^5.5.0",
+		"jest": "^27.5.1",
 		"prettier": "2.5.1",
 		"sass": "^1.45.1",
 		"sass-loader": "^12.4.0",

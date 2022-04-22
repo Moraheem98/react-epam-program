@@ -8,6 +8,22 @@ export const requestMovies = async () => {
 	return moviesData.data;
 };
 
+export const requestMovie = async (id) => {
+	const { baseUrl, moviesEndpoint } = API_CONFIG;
+	const apiLink = `${baseUrl}${moviesEndpoint}/${id}`;
+	const apiData = await fetch(apiLink);
+	const movieData = await apiData.json();
+	return movieData;
+};
+
+export const requestMoviesByGenre = async (movie_genre) => {
+	const { baseUrl, moviesEndpoint } = API_CONFIG;
+	const apiLink = `${baseUrl}${moviesEndpoint}?searchBy=genres&filter=${movie_genre}`;
+	const apiData = await fetch(apiLink);
+	const moviesData = await apiData.json();
+	return moviesData.data;
+};
+
 export const requestMoviesByTitle = async () => {
 	const { baseUrl, moviesEndpoint } = API_CONFIG;
 	const apiLink = `${baseUrl}${moviesEndpoint}?sortBy=title&sortOrder=asc`;
@@ -27,6 +43,14 @@ export const requestMoviesByDate = async () => {
 export const requestMoviesByRating = async () => {
 	const { baseUrl, moviesEndpoint } = API_CONFIG;
 	const apiLink = `${baseUrl}${moviesEndpoint}?sortBy=vote_average&sortOrder=desc`;
+	const apiData = await fetch(apiLink);
+	const moviesData = await apiData.json();
+	return moviesData.data;
+};
+
+export const requestMoviesBySearch = async (movie_name) => {
+	const { baseUrl, moviesEndpoint } = API_CONFIG;
+	const apiLink = `${baseUrl}${moviesEndpoint}?search=${movie_name}&searchBy=title`;
 	const apiData = await fetch(apiLink);
 	const moviesData = await apiData.json();
 	return moviesData.data;

@@ -1,0 +1,29 @@
+.filterContainer {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: solid lightslategray 1px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.itemContainer {
+	color: white;
+	cursor: pointer;
+}
+.itemContainer ul {
+	display: inline-flex;
+	list-style: none;
+	text-transform: uppercase;
+}
+.itemContainer li {
+	padding: 1rem;
+}
+.sortingContainer {
+	display: flex;
+	text-transform: uppercase;
+	align-items: center;
+	p {
+		height: fit-content;
+		margin-right: 8px;
+		color: white;
+	}
+}
