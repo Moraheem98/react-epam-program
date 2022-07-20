@@ -12,7 +12,8 @@
 		"eslint:fix": "npm run eslint -- --fix",
 		"lint": "npm run prettier && npm run eslint",
 		"lint:fix": "npm run prettier:fix && npm run eslint:fix",
-		"test": "jest"
+		"test": "jest",
+		"cypress:open": "cypress open"
 	},
 	"author": "Mohammed Raheem",
 	"license": "MIT",
@@ -21,7 +22,11 @@
 		"@babel/polyfill": "^7.12.1",
 		"@babel/runtime": "^7.17.2",
 		"@reduxjs/toolkit": "^1.7.1",
+		"@testing-library/jest-dom": "^5.16.4",
 		"axios": "^0.25.0",
+		"babel-jest": "^28.0.3",
+		"cypress": "^10.1.0",
+		"enzyme": "^3.11.0",
 		"formik": "^2.2.9",
 		"prop-types": "^15.8.1",
 		"react": "^17.0.2",
@@ -31,6 +36,7 @@
 		"react-redux": "^7.2.6",
 		"react-router-dom": "^6.2.1",
 		"redux": "^4.1.2",
+		"redux-mock-store": "^1.5.4",
 		"redux-thunk": "^2.4.1",
 		"yup": "^0.32.11"
 	},
@@ -39,6 +45,7 @@
 		"@babel/plugin-transform-runtime": "^7.17.0",
 		"@babel/preset-env": "^7.16.5",
 		"@babel/preset-react": "^7.16.5",
+		"@testing-library/react": "^12.1.2",
 		"babel-loader": "^8.2.3",
 		"css-loader": "^6.5.1",
 		"eslint": "^8.4.1",
